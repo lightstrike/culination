@@ -1,5 +1,4 @@
 from logging import *
-
 ######################
 # MEZZANINE SETTINGS #
 ######################
@@ -180,9 +179,9 @@ AUTH_PROFILE_MODULE = 'app.profile'
 import os
 
 # Full filesystem path to the project.
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__),
-    '..',
-    '..'))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), 
+	'..',
+	'..'))
 # Name of the directory for the project.
 #PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
 PROJECT_DIRNAME = "tutelage"
@@ -206,11 +205,9 @@ STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, "media")]
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = "http://culination-testing.s3.amazonaws.com/"
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -225,6 +222,7 @@ ROOT_URLCONF = "urls"
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
+
 
 FILE_UPLOAD_TEMP_DIR = os.path.join(PROJECT_ROOT, 'tmp_uploads')
 
@@ -456,7 +454,7 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 #     }
 # }
 
-LOGIN_REDIRECT_URL = '/admin/'
+# LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = "/"
 #LOGIN_URL = "/account/login/"
 # LOGOUT_URL = '/logout'
@@ -514,6 +512,12 @@ LOGIN_URL = "/"
 # except:
 #     pass
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'team@tutelageinc.com'
+EMAIL_HOST_PASSWORD = 'turtles101'
+EMAIL_PORT = 587
+
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 HAYSTACK_WHOOSH_PATH =  os.path.join(PROJECT_ROOT, 'whoosh_index')
 HAYSTACK_SITECONF = 'app.search_sites'
@@ -521,8 +525,3 @@ HAYSTACK_SITECONF = 'app.search_sites'
 
 STRIPE_API = "fYNnSezc4SWDZce9XexC6iP2bLhS6Lan"
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-AWS_STORAGE_BUCKET_NAME = 'culination-testing'
-AWS_ENCODING_BUCKET_NAME = 'culination-transcode'
-AWS_ACCESS_KEY_ID = 'AKIAJNDCQNNOONNJ6VCA'
-AWS_SECRET_ACCESS_KEY = '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'

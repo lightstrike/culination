@@ -22,13 +22,15 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_ACCESS_KEY_ID = 'AKIAJNDCQNNOONNJ6VCA'
 AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'culination-testing'
+AWS_STORAGE_BUCKET_NAME = 'culination-dev'
+AWS_ENCODING_BUCKET_NAME = 'culination-transcode'
 AWS_HEADERS = {
     'Expires': 'Tue, 14 Aug 2013 20:00:00 GMT',
     'Cache-Control': 'max-age=8640000',
     }
 
-MEDIA_URL = "http://culination-testing.s3.amazonaws.com/"
+MEDIA_URL = "http://culination-dev.s3.amazonaws.com/"
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
 
 CACHES = {
     'default': {
@@ -67,24 +69,6 @@ TEMPLATE_LOADERS = (
     )),
 )
 
-
-
-<<<<<<< HEAD
-# FIXME(andrew): OMG SO MUCH WRONG WITH THIS.
-
-"""
-import uwsgi
-from uwsgidecorators import timer
-from django.utils import autoreload
-
-@timer(3)
-def change_code_gracefull_reload(sig):
-    if autoreload.code_changed():
-            uwsgi.reload()
-"""
-
-=======
->>>>>>> 68e5a21... removed uwsgi reloader
 ####################
 # DYNAMIC SETTINGS #
 ####################

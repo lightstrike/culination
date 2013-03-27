@@ -10,7 +10,7 @@ LOGGING = {
         'default': {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',
-            'filename': 'production/logs/django.log', # FIXME(andrew)
+            'filename': 'logs/django.log', # FIXME(andrew)
             'maxBytes': 1024*1024*50,
             'backupCount': 5,
             'formatter':'standard',
@@ -19,7 +19,7 @@ LOGGING = {
                 'level':'DEBUG',
                 'class':'logging.handlers.RotatingFileHandler',
 		# FIXME(andrew)
-                'filename': 'production/logs/django_request.log',
+                'filename': 'logs/django_request.log',
                 'maxBytes': 1024*1024*5,
                 'backupCount': 5,
                 'formatter':'standard',
@@ -39,3 +39,5 @@ LOGGING = {
         },
     }
 }
+
+
