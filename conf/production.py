@@ -71,6 +71,7 @@ TEMPLATE_LOADERS = (
 
 # FIXME(andrew): OMG SO MUCH WRONG WITH THIS.
 
+"""
 import uwsgi
 from uwsgidecorators import timer
 from django.utils import autoreload
@@ -79,7 +80,7 @@ from django.utils import autoreload
 def change_code_gracefull_reload(sig):
     if autoreload.code_changed():
             uwsgi.reload()
-
+"""
 
 ####################
 # DYNAMIC SETTINGS #

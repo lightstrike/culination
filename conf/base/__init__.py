@@ -1,3 +1,5 @@
+from logging import *
+
 ######################
 # MEZZANINE SETTINGS #
 ######################
@@ -178,7 +180,9 @@ AUTH_PROFILE_MODULE = 'app.profile'
 import os
 
 # Full filesystem path to the project.
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__),
+    '..',
+    '..'))
 # Name of the directory for the project.
 #PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
 PROJECT_DIRNAME = "tutelage"
@@ -221,7 +225,6 @@ ROOT_URLCONF = "urls"
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
-
 
 FILE_UPLOAD_TEMP_DIR = os.path.join(PROJECT_ROOT, 'tmp_uploads')
 
