@@ -69,6 +69,7 @@ TEMPLATE_LOADERS = (
 
 
 
+<<<<<<< HEAD
 # FIXME(andrew): OMG SO MUCH WRONG WITH THIS.
 
 """
@@ -82,6 +83,8 @@ def change_code_gracefull_reload(sig):
             uwsgi.reload()
 """
 
+=======
+>>>>>>> 68e5a21... removed uwsgi reloader
 ####################
 # DYNAMIC SETTINGS #
 ####################
