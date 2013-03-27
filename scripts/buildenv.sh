@@ -1,6 +1,6 @@
 #!/bin/bash
-
-virtualenv env --quiet --distribute
+CACHE_DIR=/var/tmp/pipcache
+virtualenv env
 source env/bin/activate
-pip install -q -r requirements.txt --download-cache=cache/pip
-
+mkdir -p ${CACHE_DIR}
+pip install --download-cache=${CACHE_DIR} -r requirements.txt
