@@ -67,7 +67,58 @@ TEMPLATE_LOADERS = (
     )),
 )
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+        },
+    },
+    'handlers': {
+        'default': {
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': 'production/logs/django.log', # FIXME(andrew)
+            'maxBytes': 1024*1024*50,
+            'backupCount': 5,
+            'formatter':'standard',
+        },  
+        'request_handler': {
+                'level':'DEBUG',
+                'class':'logging.handlers.RotatingFileHandler',
+		# FIXME(andrew)
+                'filename': 'production/logs/django_request.log',
+                'maxBytes': 1024*1024*5,
+                'backupCount': 5,
+                'formatter':'standard',
+        },
+    },
+    'loggers': {
 
+        '': {
+            'handlers': ['default'],
+            'level': 'DEBUG',
+            'propagate': True
+        },
+        'django.request': {
+            'handlers': ['request_handler'],
+            'level': 'DEBUG',
+            'propagate': False
+        },
+    }
+}
+
+# FIXME(andrew): OMG SO MUCH WRONG WITH THIS.
+
+import uwsgi
+from uwsgidecorators import timer
+from django.utils import autoreload
+
+@timer(3)
+def change_code_gracefull_reload(sig):
+    if autoreload.code_changed():
+            uwsgi.reload()
 
 
 ####################
@@ -85,4 +136,4 @@ try:
 except ImportError:
     pass
 else:
-    set_dynamic_settings(globals())
+   set_dynamic_settings(globals())

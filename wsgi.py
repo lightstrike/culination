@@ -16,6 +16,16 @@ import django.core.handlers.wsgi
 
 djangoapplication = django.core.handlers.wsgi.WSGIHandler()
 
+import uwsgi
+from uwsgidecorators import timer
+from django.utils import autoreload
+
+@timer(3)
+def change_code_gracefull_reload(sig):
+    if autoreload.code_changed():
+            uwsgi.reload()
+
+
 # DotCloud WSGI stack sets the SCRIPT_NAME variable in the WSGI environment. This variable is required by some frameworks, but it confuses Django. Therefore, our wsgi.py wrapper unsets the variable to avoid unwanted side effects.
 def application(environ, start_response):
         if 'SCRIPT_NAME' in environ:
