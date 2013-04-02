@@ -1,6 +1,7 @@
 /* Splash Page */
 
 .splash-background-image {
+    height: 100%;
     background: url(../img/launchimg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -15,7 +16,7 @@
   background-color: rgba(255, 255, 255, 0.8); 
   margin-top: 0px;
   margin-bottom: 0px;
-  height: 100%;
+  min-height: 100%;
   width: 460px;
 }
 
@@ -23,7 +24,7 @@
     height: 155px;
 }
 
-.logo, .slogan, .splash-signup h3, .splash-signup-email  {
+.logo, .slogan, .splash-message, .splash-signup h3, .splash-signup-email  {
     margin-left: 20px !important;
 }
 
@@ -36,6 +37,7 @@
 
 .slogan {
     margin-top: 40px;
+    @extend .museo-sans-300;
 }
 
 .slogan div {
@@ -48,7 +50,7 @@
     margin-left: 30px !important;
 }
 
-.splash-signup div {
+.splash-message, .splash-signup div {
     font-size: 18px;
     line-height: 27px;
 }

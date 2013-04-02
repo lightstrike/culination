@@ -4,6 +4,10 @@
   <head>
     <title>Culination - Taste Your Potential</title>
     <link rel='stylesheet' href='{{ STATIC_URL }}css/main.css' />
+    <!-- Fonts.com script -->
+    <link type="text/css" rel="stylesheet" href="http://fast.fonts.com/cssapi/7bfff3c4-02ad-427f-8aa8-671fe1e386b2.css"/>
+    <script type="text/javascript" src="http://fast.fonts.com/jsapi/7bfff3c4-02ad-427f-8aa8-671fe1e386b2.js"></script>
+    
     <link rel='shortcut icon' href='{{ STATIC_URL }}img/favicon.ico' />
     <link rel='apple-touch-icon' href="">
 
@@ -49,6 +53,24 @@
             position:'absolute',
             left: ($(window).width() - 980)/2,
         });
+        
+        $('.addthis_icon').click(function() {
+            source_image = $(this).attr('src');
+            hover_image = source_image.substring(0,source_image.length-4) + '_hover.png';
+            $(this).attr('src',hover_image);
+            social_media_file = source_image.replace(/^.*[\\\/]/, '');
+            social_media = social_media_file.substring(0, social_media_file.length-4);
+            
+            if (social_media == "facebook") {
+              var message = "Thank you for liking Culination on Facebook!";
+              $('.tagline').append('<div>' + message + '</div>');
+            }
+            else {
+              var message = "Thank you for following Culination on " + social_media + "!";
+              $('.tagline').append('<div>' + message + '</div>');
+            }
+            
+        });
     });
     </script>
   </head>
@@ -56,16 +78,19 @@
     <!-- AddThis Analytics -->
     <script type="text/javascript">var addthis_config = {"data_track_addressbar":true, services_overlay:'facebook,tumblr,more'};</script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513a9c4843710012"></script>  
-    
+
     <div class="container splash-container">
       <div class="row">
         <div class="span6 logo-slogan">
           <img class="logo pinit" src="{{ STATIC_URL }}img/culination-logo-full.png" />
           <div class="tagline">
-            <div class="primary">TASTE YOUR POTENTIAL</div>
+            <div class="primary">Taste Your Potential</div>
             {% include "share.html" %}
           </div>
           <div class="slogan primary">
+            <div>A Better Way to Cook</div>
+          </div>
+          <div class="splash-message">
             <div>Learn to cook while you cook</div>
             <div>and reward yourself for doing it.</div>
           </div>
@@ -76,8 +101,9 @@
       <div class="row">
         <div class="span6 splash-signup">
         {% if signup_email %}
-          <div class="span6 signup-thanks">We'll let you know when your table is ready :)</div>
-          <div class="span6">Reservation made for: {{signup_email}}</div>
+          <div class="span6 signup-thanks">We're preheating the oven for:</div>
+          <div class="span6">{{signup_email}}</div>
+          <div class="span6">We'll ping you when it's time to cook. :)</div>
         {% else %}
           <div class="span6 splash-signup-text">Want to find out more?</div>
           <form id="splash-signup-form" class="splash-signup-form" action="" method="post">
@@ -88,6 +114,13 @@
         {% endif %}
         </div>
       </div>  
+      
+      <div class="row">
+        <a href="http://indiegogo.com/" >  
+          <div class="span6 btn btn-primary">Join us on IndieGoGo!</div>
+        </a>
+      </div>
+      
       <div class="row">
         <div class="span6 splash-login">
           <div class="splash-signup-text">Already have an invitation?</div>

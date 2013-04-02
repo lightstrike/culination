@@ -36,6 +36,26 @@
     font-style: normal;
 }
 
+@font-face {
+  font-family:'Museo Sans W01 300';
+}
+
+.museo-sans-300 {
+  font-family:'Museo Sans W01 300';
+}
+
+.museo-sans-500 {
+  font-family:'Museo Sans W01 500';
+}
+
+.museo-sans-700 {
+  font-family:'Museo Sans W01 700';
+}
+
+.lubalin-graph {
+  font-family:'ITCLubalinGraphW01-Demi';
+}
+
 $black					        :				  #333333;
 $white                  :         #fff;
 $primary                :         #57264f;

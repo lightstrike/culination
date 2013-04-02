@@ -5454,6 +5454,26 @@ a.label:hover, a.badge:hover {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Museo Sans W01 300';
+}
+
+.museo-sans-300, .slogan {
+  font-family: 'Museo Sans W01 300';
+}
+
+.museo-sans-500 {
+  font-family: 'Museo Sans W01 500';
+}
+
+.museo-sans-700 {
+  font-family: 'Museo Sans W01 700';
+}
+
+.lubalin-graph {
+  font-family: 'ITCLubalinGraphW01-Demi';
+}
+
 body {
   background-color: #ececec !important;
   line-height: 115% !important;
@@ -8943,7 +8963,7 @@ body.rtl .formError .formErrorArrow {
 
 .footer-left {
   display: inline-block;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 0px 0px 0px;
 }
 
 .footer-right {
@@ -10578,6 +10598,7 @@ btn-avatar {
 
 /* Splash Page */
 .splash-background-image {
+  height: 100%;
   background: url(../img/launchimg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -10591,7 +10612,7 @@ btn-avatar {
   background-color: rgba(255, 255, 255, 0.8);
   margin-top: 0px;
   margin-bottom: 0px;
-  height: 100%;
+  min-height: 100%;
   width: 460px;
 }
 
@@ -10599,7 +10620,7 @@ btn-avatar {
   height: 155px;
 }
 
-.logo, .slogan, .splash-signup h3, .splash-signup-email {
+.logo, .slogan, .splash-message, .splash-signup h3, .splash-signup-email {
   margin-left: 20px !important;
 }
 
@@ -10624,7 +10645,7 @@ btn-avatar {
   margin-left: 30px !important;
 }
 
-.splash-signup div {
+.splash-message, .splash-signup div {
   font-size: 18px;
   line-height: 27px;
 }
