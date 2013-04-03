@@ -36,6 +36,7 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
+    
     <script src="https://js.stripe.com/v1/"></script>
     <script type="text/javascript">
             Stripe.setPublishableKey('pk_ql6Y3hAzG1yNZRTgdy5I6O7wMzbES');
@@ -49,6 +50,30 @@
             position:'absolute',
             left: ($(window).width() - 980)/2,
         });
+        
+        $('.addthis_icon').click(function() {
+            source_image = $(this).attr('src');
+            if (source_image.slice(source_image.length-10) != "_hover.png") {
+              hover_image = source_image.substring(0,source_image.length-4) + '_hover.png';
+              $(this).attr('src',hover_image);
+              social_media_file = source_image.replace(/^.*[\\\/]/, '');
+              
+              function capitalize(s) {
+                return s[0].toUpperCase() + s.slice(1);
+              }
+              
+              social_media = capitalize(social_media_file.substring(0, social_media_file.length-4));
+              
+              if (social_media == "Google-plus") {
+                  social_media = "Google+";
+              }
+              
+              var message = "Thanks for sharing Culination on " + social_media + "!";
+              $('.sharing-thanks').empty();
+              $('.sharing-thanks').append('<div>' + message + '</div>');
+            }
+        });
+        
     });
     </script>
   </head>
@@ -56,22 +81,35 @@
     <!-- AddThis Analytics -->
     <script type="text/javascript">var addthis_config = {"data_track_addressbar":true, services_overlay:'facebook,tumblr,more'};</script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513a9c4843710012"></script>  
-    
+
+    <div class="background-image-copyright">&#169; Photography courtesy of Kathy Casey Food Studios</div>
     <div class="container splash-container">
       <div class="row">
         <div class="span6 logo-slogan">
           <img class="logo pinit" src="{{ STATIC_URL }}img/culination-logo-full.png" />
           <div class="tagline">
-            <div class="primary">TASTE YOUR POTENTIAL</div>
+            <div class="primary">Taste your potential</div>
             {% include "share.html" %}
+            <div class="sharing-thanks"></div>
           </div>
           <div class="slogan primary">
+            <div>A better way to cook</div>
+          </div>
+          <div class="splash-message">
             <div>Learn to cook while you cook</div>
             <div>and reward yourself for doing it.</div>
           </div>
           
         </div>
       </div>
+      
+      <!-- commented out until Indiegogo campaign launches 
+      <div class="row">
+        <a href="http://indiegogo.com/" >  
+          <div class="btn btn-tertiary btn-indiegogo">See our Indiegogo campaign</div>
+        </a>
+      </div>
+      -->
       
       <div class="row">
         <div class="span6 splash-signup">
@@ -80,10 +118,11 @@
           <div class="span6">Reservation made for: {{signup_email}}</div>
         {% else %}
           <div class="span6 splash-signup-text">Need an invitation?</div>
-          <a href="/" class="btn btn-primary splash-btn">yes!</a>
+          <a href="/" class="btn btn-primary splash-btn splash-invite-btn">YES!</a>
         {% endif %}
         </div>
       </div>  
+      
       <div class="row">
         <div class="span6 splash-login">
           <div class="splash-signup-text">Already have an invitation?</div>
@@ -94,35 +133,65 @@
             <input name="username"
                          type="email"
                          class="span4"
-                         placeholder="email"
+                         placeholder="Username"
                          value="{{login_form.username.value|default:""}}"
                          />
-                         <!--data-validation-engine="validate[required,custom[email]]"
-                         data-errormessage-value-missing="Email is required!"
-                         data-errormessage-custom-error="Email must be in the format 'user@domain.com'" commenting out error messages for private launch -->
-                         
                    
             <input name="password"
                          class="span4"
                          type="password"
-                         placeholder="password"
+                         placeholder="Password"
                          />
-                         <!-- data-validation-engine="validate[required]"
-                         data-errormessage-value-missing="Password is required!" commenting out error messages for private launch -->
-          
-            <input type="submit" class="btn btn-primary splash-btn" value="login">
+
+            <input type="submit" class="btn btn-primary splash-btn" value="LOGIN">
             </div>
             <div class="private-login-errors">
-              {{login_form.username.errors}}
-              {{login_form.password.errors}}
-              {{login_form.non_field_errors}}  
+              <div class="private-login-username-errors">
+                {{login_form.username.errors}}
+              </div>
+              <div class="private-login-password-errors">
+                {{login_form.password.errors}}
+              </div>
+              <div class="private-login-other-errors">
+                {{login_form.non_field_errors }} 
+              </div>  
             </div>
             <input type="hidden" name="next" value="{{login_form.next.value|default:request.get_full_path}}" >
           </form>
-          <!--<a class="btn splash-btn" href="./private-login">login</a>-->
         </div>
       </div>
-    
+      
+      <div class="row">
+        <div class="span6 social-media-follow addthis_toolbox addthis_default_style addthis_32x32_style">
+          <a class="addthis_button_facebook_like" fb:like:href="https://www.facebook.com/Culination" fb:like:layout="button_count"></a>
+          <a class="addthis_button_twitter_follow_native" tw:screen_name="Culinators"></a> 
+          <a data-pin-do="buttonFollow" href="http://pinterest.com/culination/">Culination</a>
+        </div>
+        
+        <!-- Google-Plus Follow -->
+        <script type="text/javascript">
+          (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+        </script>
+
+        <!-- Pinterest Follow -->
+        <script type="text/javascript">
+        (function(d){
+          var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+          p.type = 'text/javascript';
+          p.async = true;
+          p.src = '//assets.pinterest.com/js/pinit.js';
+          f.parentNode.insertBefore(p, f);
+        }(document));
+        </script>
+        
+      </div>
+      
+      <div class="company-copyright">&#169; Tutelage, Inc.</div>
+    </div>
+      
   </body>
 </html>
-

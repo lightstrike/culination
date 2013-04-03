@@ -65,11 +65,15 @@ def create_stripe_customer(func):
         return func(request, *args, **kwargs)
     return wrapper
 
-
+@csrf_exempt
 def welcome(request):
     form = UserSignupRequestForm(request.POST)
     if request.method == 'POST':
             signup_email = request.POST.get('email')
+            
+            if len(signup_email) == 0:
+              return direct_to_template(request, "welcome.html", {"signup_form": form})
+              
             form.save()
             return direct_to_template(request, "welcome.html", {"signup_form": form, 'signup_email':signup_email})
     if request.user.is_authenticated():

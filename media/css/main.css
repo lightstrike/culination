@@ -10597,7 +10597,7 @@ btn-avatar {
 }
 
 .background-image-copyright {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   padding: 20px;
@@ -10665,7 +10665,6 @@ btn-avatar {
 }
 
 .signup-thanks {
-  margin-top: 20px;
   font-family: 'MuseoSans300';
   font-size: 18px;
   line-height: 24px;
@@ -10693,7 +10692,7 @@ btn-avatar {
 .splash-signup-form input, .login-form input {
   height: 30px;
   width: 218px;
-  padding: 5px 20px;
+  padding: 7px 20px 3px 20px;
 }
 
 .btn-indiegogo {
@@ -10738,9 +10737,9 @@ btn-avatar {
 }
 
 .sharing-thanks {
-  font-family: 'MuseoSans700';
+  font-family: 'MuseoSans300';
   font-size: 14px;
-  color: #cdcdcd;
+  color: #666666;
 }
 
 .splash-btn {
@@ -10754,6 +10753,11 @@ btn-avatar {
 .splash-btn:hover {
   vertical-align: top;
   border-radius: 3px;
+}
+
+.splash-invite-btn {
+  height: 28px;
+  padding: 12px 20px 0px 20px;
 }
 
 .social-media-follow {
@@ -10772,11 +10776,12 @@ btn-avatar {
 }
 
 .private-login-errors {
-  width: 300px;
+  margin: 10px 0px 80px 0px;
+  width: 260px;
 }
 
 .private-login-errors ul {
-  padding-left: 7px;
-  padding-right: 7px;
-  width: 284px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 218px;
 }
