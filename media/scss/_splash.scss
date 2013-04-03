@@ -11,13 +11,34 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/login-background.png', sizingMethod='scale')";
 }
 
+.background-image-copyright {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 20px;
+    font-family: 'MuseoSans300';
+    font-size: 12px;
+    font-weight: normal;
+    color: $darkgray;
+}
+
+.company-copyright {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    font-family: 'MuseoSans300';
+    font-size: 12px;
+    font-weight: normal;
+    color: $darkgray;
+}
 
 .splash-container {
-  background-color: rgba(255, 255, 255, 0.8); 
-  margin-top: 0px;
-  margin-bottom: 0px;
-  min-height: 100%;
-  width: 460px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    margin-top: 0px;
+    margin-bottom: 0px;
+    min-height: 100%;
+    width: 460px;
 }
 
 .logo {
@@ -37,26 +58,30 @@
 
 .slogan {
     margin-top: 40px;
-    @extend .museo-sans-300;
+    font-family: 'MuseoSans300';
 }
 
 .slogan div {
     margin: 0px;
     font-size: 26px;
-    height: 39px;
+    height: 26px;
 }
 
 .splash-signup:nth-child(3) {
     margin-left: 30px !important;
 }
 
-.splash-message, .splash-signup div {
+.splash-message {
+    font-family: 'MuseoSans300';
     font-size: 18px;
-    line-height: 27px;
+    line-height: 24px;
 }
 
 .signup-thanks {
     margin-top: 20px;
+    font-family: 'MuseoSans300';
+    font-size: 18px;
+    line-height: 24px;
 }
 
 .splash-image {
@@ -68,13 +93,37 @@
 }
 
 .splash-signup-text {
+    font-family: 'MuseoSans500';
     margin-top: 20px;
-    font-size: 18px;
-    height: 27px;
+    font-size: 16px;
+    height: 32px;
 }
 
 .splash-signup-form {
     margin: 0px;
+}
+
+.splash-signup-form input, .login-form input {
+    height: 30px;
+    width: 218px;
+    padding: 5px 20px;
+}
+
+.btn-indiegogo {
+    margin: 40px 0px 20px 0px;
+    padding: 14px 4px 14px 24px;
+    width: 385px;
+    border-radius: 5px;
+    font-family: 'MuseoSans300';
+    font-size: 27px;
+    font-weight: normal;
+}
+
+.btn-indiegogo:hover {
+    border-radius: 5px;
+    font-family: 'MuseoSans300';
+    font-size: 27px;
+    font-weight: normal;
 }
 
 .splash-login {
@@ -87,7 +136,7 @@
 }
 
 .social-media-sharing {
-    margin-top: 20px;
+    margin: 20px 0px 10px -10px;
     height: 40px;
 }
 
@@ -101,14 +150,38 @@
     margin-top: 5px;
 }
 
+.sharing-thanks {
+    font-family: 'MuseoSans700';
+    font-size: 14px;
+    color: $lightgray;
+}
+
 .splash-btn {
     vertical-align: top;
     margin-left: 20px;
     width: 47px !important;
+    border-radius: 3px;
+    font-family: 'MuseoSans300';
 }
 
 .splash-btn:hover {
     vertical-align: top;
+    border-radius: 3px;
+}
+
+.social-media-follow {
+    position: absolute;
+    bottom: 0;
+    padding: 20px 0px 40px 20px;
+}
+
+.addthis_button_facebook_like {
+    margin-top: 2px;
+}
+
+.addthis_button_twitter_follow_native {
+    margin-left: 10px;
+    width: 205px;
 }
 
 .private-login-errors {

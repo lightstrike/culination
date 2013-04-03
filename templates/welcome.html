@@ -4,10 +4,6 @@
   <head>
     <title>Culination - Taste Your Potential</title>
     <link rel='stylesheet' href='{{ STATIC_URL }}css/main.css' />
-    <!-- Fonts.com script -->
-    <link type="text/css" rel="stylesheet" href="http://fast.fonts.com/cssapi/7bfff3c4-02ad-427f-8aa8-671fe1e386b2.css"/>
-    <script type="text/javascript" src="http://fast.fonts.com/jsapi/7bfff3c4-02ad-427f-8aa8-671fe1e386b2.js"></script>
-    
     <link rel='shortcut icon' href='{{ STATIC_URL }}img/favicon.ico' />
     <link rel='apple-touch-icon' href="">
 
@@ -40,6 +36,7 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
+    
     <script src="https://js.stripe.com/v1/"></script>
     <script type="text/javascript">
             Stripe.setPublishableKey('pk_ql6Y3hAzG1yNZRTgdy5I6O7wMzbES');
@@ -59,18 +56,19 @@
             hover_image = source_image.substring(0,source_image.length-4) + '_hover.png';
             $(this).attr('src',hover_image);
             social_media_file = source_image.replace(/^.*[\\\/]/, '');
-            social_media = social_media_file.substring(0, social_media_file.length-4);
             
-            if (social_media == "facebook") {
-              var message = "Thank you for liking Culination on Facebook!";
-              $('.tagline').append('<div>' + message + '</div>');
+            function capitalize(s) {
+              return s[0].toUpperCase() + s.slice(1);
             }
-            else {
-              var message = "Thank you for following Culination on " + social_media + "!";
-              $('.tagline').append('<div>' + message + '</div>');
-            }
+            
+            social_media = capitalize(social_media_file.substring(0, social_media_file.length-4));
+            
+            var message = "Thanks for sharing Culination on " + social_media + "!";
+            $('.sharing-thanks').empty();
+            $('.sharing-thanks').append('<div>' + message + '</div>');
             
         });
+        
     });
     </script>
   </head>
@@ -79,16 +77,18 @@
     <script type="text/javascript">var addthis_config = {"data_track_addressbar":true, services_overlay:'facebook,tumblr,more'};</script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513a9c4843710012"></script>  
 
+    <div class="background-image-copyright">&#169; Photography courtesy of Kathy Casey Food Studios</div>
     <div class="container splash-container">
       <div class="row">
         <div class="span6 logo-slogan">
           <img class="logo pinit" src="{{ STATIC_URL }}img/culination-logo-full.png" />
           <div class="tagline">
-            <div class="primary">Taste Your Potential</div>
+            <div class="primary">Taste your potential</div>
             {% include "share.html" %}
+            <div class="sharing-thanks"></div>
           </div>
           <div class="slogan primary">
-            <div>A Better Way to Cook</div>
+            <div>A better way to cook</div>
           </div>
           <div class="splash-message">
             <div>Learn to cook while you cook</div>
@@ -98,28 +98,32 @@
         </div>
       </div>
       
+      <!-- commented out until Indiegogo campaign launches 
+      <div class="row">
+        <a href="http://indiegogo.com/" >  
+          <div class="btn btn-tertiary btn-indiegogo">See our Indiegogo campaign</div>
+        </a>
+      </div>
+      -->
+      
       <div class="row">
         <div class="span6 splash-signup">
         {% if signup_email %}
-          <div class="span6 signup-thanks">We're preheating the oven for:</div>
-          <div class="span6">{{signup_email}}</div>
-          <div class="span6">We'll ping you when it's time to cook. :)</div>
+          <div class="signup-thanks">
+            <div class="span6">We're preheating the oven for:</div>
+            <div class="span6">{{signup_email}}</div>
+            <div class="span6">We'll ping you when it's time to cook. :)</div>
+          </div>
         {% else %}
           <div class="span6 splash-signup-text">Want to find out more?</div>
           <form id="splash-signup-form" class="splash-signup-form" action="" method="post">
             {% csrf_token %}
-            <input class="span4 splash-signup-email" name="email" type="email" placeholder="email">
-            <input class="btn btn-primary splash-btn" type="submit" value="submit">
+            <input class="span4 splash-signup-email" name="email" type="email" placeholder="Your email...">
+            <input class="btn btn-primary splash-btn" type="submit" value="SUBMIT">
           </form>
         {% endif %}
         </div>
       </div>  
-      
-      <div class="row">
-        <a href="http://indiegogo.com/" >  
-          <div class="span6 btn btn-primary">Join us on IndieGoGo!</div>
-        </a>
-      </div>
       
       <div class="row">
         <div class="span6 splash-login">
@@ -131,7 +135,7 @@
             <input name="username"
                          type="email"
                          class="span4"
-                         placeholder="email"
+                         placeholder="Username"
                          value="{{login_form.username.value|default:""}}"
                          />
                          <!--data-validation-engine="validate[required,custom[email]]"
@@ -142,12 +146,12 @@
             <input name="password"
                          class="span4"
                          type="password"
-                         placeholder="password"
+                         placeholder="Password"
                          />
                          <!-- data-validation-engine="validate[required]"
                          data-errormessage-value-missing="Password is required!" commenting out error messages for private launch -->
           
-            <input type="submit" class="btn btn-primary splash-btn" value="login">
+            <input type="submit" class="btn btn-primary splash-btn" value="LOGIN">
             </div>
             <div class="private-login-errors">
               <div class="private-login-username-errors">
@@ -162,9 +166,40 @@
             </div>
             <input type="hidden" name="next" value="{{login_form.next.value|default:request.get_full_path}}" >
           </form>
-          <!--<a class="btn splash-btn" href="./private-login">login</a>-->
         </div>
       </div>
-    
+      
+      <div class="row">
+        <div class="span6 social-media-follow addthis_toolbox addthis_default_style addthis_32x32_style">
+          <a class="addthis_button_facebook_like" fb:like:href="https://www.facebook.com/Culination" fb:like:layout="button_count"></a>
+          <a class="addthis_button_twitter_follow_native" tw:screen_name="Culinators"></a> 
+          <a data-pin-do="buttonFollow" href="http://pinterest.com/culination/">Culination</a>
+        </div>
+        
+        <!-- Google-Plus Follow -->
+        <script type="text/javascript">
+          (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+        </script>
+
+        <!-- Pinterest Follow -->
+        <script type="text/javascript">
+        (function(d){
+          var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+          p.type = 'text/javascript';
+          p.async = true;
+          p.src = '//assets.pinterest.com/js/pinit.js';
+          f.parentNode.insertBefore(p, f);
+        }(document));
+        </script>
+        
+      </div>
+      
+      <div class="company-copyright">&#169; Tutelage, Inc.</div>
+    </div>
+      
   </body>
 </html>

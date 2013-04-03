@@ -4,6 +4,17 @@
 /* Main Styling */
 
 @font-face {
+    font-family: 'MuseoSans300';
+    src: url('../fonts/museosans-300-webfont.eot');
+    src: url('../fonts/museosans-300-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans-300-webfont.woff') format('woff'),
+         url('../fonts/museosans-300-webfont.ttf') format('truetype'),
+         url('../fonts/museosans-300-webfont.svg#museo_sans300') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'MuseoSans500';
     src: url('../fonts/MuseoSans_500-webfont.eot');
     src: url('../fonts/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
@@ -36,26 +47,6 @@
     font-style: normal;
 }
 
-@font-face {
-  font-family:'Museo Sans W01 300';
-}
-
-.museo-sans-300 {
-  font-family:'Museo Sans W01 300';
-}
-
-.museo-sans-500 {
-  font-family:'Museo Sans W01 500';
-}
-
-.museo-sans-700 {
-  font-family:'Museo Sans W01 700';
-}
-
-.lubalin-graph {
-  font-family:'ITCLubalinGraphW01-Demi';
-}
-
 $black					        :				  #333333;
 $white                  :         #fff;
 $primary                :         #57264f;
@@ -67,7 +58,7 @@ $tertiary-active        :         #ad4621;
 $inactive-selected      :         #95CFAD;
 
 $gray					          :				  #e4e4e4;
-$lightgray				      :				  #cacaca;
+$lightgray				      :				  #cdcdcd;
 $darkgray				        :				  #666666;
 $pink					          :				  #ff7474;
 $background             :         #ececec;
@@ -148,7 +139,7 @@ body {
     color: $text-color !important;
     text-shadow: 0 0px 0 rgba(0, 0, 0, 0.00) !important;
     -webkit-font-smoothing: antialiased;
-    border-radius: 0px !important;
+    border-radius: 0px;
     font-weight: bold;
     background-position: 0% 0%;
 }
