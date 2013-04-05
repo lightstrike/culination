@@ -286,6 +286,7 @@ MIDDLEWARE_CLASSES = (
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.redirects.middleware.RedirectFallbackMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "mezzanine.core.request.CurrentRequestMiddleware",
     "mezzanine.core.middleware.TemplateForDeviceMiddleware",
@@ -541,6 +542,8 @@ CACHES = {
         'LOCATION': 'culination'
     }
 }
+
+#CSRF_FAILURE_VIEW = 'app.views.csrf_failure'
 
 ####################
 # DYNAMIC SETTINGS #

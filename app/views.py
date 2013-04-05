@@ -65,7 +65,6 @@ def create_stripe_customer(func):
         return func(request, *args, **kwargs)
     return wrapper
 
-@csrf_exempt
 def welcome(request):
     form = UserSignupRequestForm(request.POST)
     if request.method == 'POST':
@@ -81,6 +80,9 @@ def welcome(request):
     else:
         return direct_to_template(request, "welcome.html", {"signup_form": form})
 
+def csrf_failure(request, reason=""):
+    form = UserSignupRequestForm(request.POST)
+    return direct_to_template(request, "private-login.html")
 
 @login_required(redirect_field_name='')
 def profile(request, user_id=None):

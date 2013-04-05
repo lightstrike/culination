@@ -10640,6 +10640,7 @@ btn-avatar {
   margin-top: 40px;
   margin-left: 20px;
   height: 110px;
+  font-family: 'MuseoSans300';
   font-size: 20px;
 }
 
@@ -10689,7 +10690,7 @@ btn-avatar {
   margin: 0px;
 }
 
-.splash-signup-form input, .login-form input {
+.splash-signup-form .span4, .login-form .span4 {
   height: 30px;
   width: 218px;
   padding: 7px 20px 3px 20px;
@@ -10745,7 +10746,11 @@ btn-avatar {
 .splash-btn {
   vertical-align: top;
   margin-left: 20px;
-  width: 47px !important;
+  padding: 7px 20px 3px 20px;
+  width: 47px;
+  min-width: 57px;
+  height: 30px;
+  min-height: 30px;
   border-radius: 3px;
   font-family: 'MuseoSans300';
 }

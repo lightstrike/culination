@@ -11,8 +11,6 @@ from django.http import HttpResponseRedirect
 
 from django.contrib.auth.decorators import login_required
 
-from django.views.decorators.csrf import csrf_exempt
-
 def account_redirect(request):
     return HttpResponseRedirect('/')
 
@@ -34,7 +32,6 @@ def password_change(request):
     ##TODO: flash a message here that you've changed your password
     return rv
 
-@csrf_exempt
 def login(request):
     next = request.POST.get("next", '')
     if 'next=' in next:
@@ -48,3 +45,6 @@ def login(request):
     if type(rv) == HttpResponseRedirect:
         return HttpResponseRedirect(next)
     return rv
+
+#def csrf_failure(request, reason=""):
+#    return HttpResponseRedirect('/')
