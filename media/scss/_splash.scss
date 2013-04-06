@@ -158,14 +158,15 @@
     color: $darkgray;
 }
 
+input::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    padding:0;
+    border:0;
+}
+
 .splash-btn {
     vertical-align: top;
     margin-left: 20px;
-    padding: 7px 20px 3px 20px;
-    width: 47px;
-    min-width: 57px;
-    height: 30px;
-    min-height: 30px;
     border-radius: 3px;
     font-family: 'MuseoSans300';
 }
@@ -173,6 +174,14 @@
 .splash-btn:hover {
     vertical-align: top;
     border-radius: 3px;
+}
+
+.splash-signup-form .splash-btn {
+    padding: 12px 27px 8px 26px;
+}
+
+.login-form .splash-btn {
+    padding: 12px 30px 8px 30px;
 }
 
 .splash-invite-btn {

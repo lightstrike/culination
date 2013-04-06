@@ -66,7 +66,7 @@ $border-color           :         $lightgray;
 
 body {
   background-color: $background !important;
-  line-height: 115% !important;
+  line-height: 115%;
   font-family: 'MuseoSans500', Fallback, sans-serif;
   hr {
     margin: 10px 0;
@@ -138,6 +138,9 @@ body {
     border: 1px solid $border-color !important;
     color: $text-color !important;
     text-shadow: 0 0px 0 rgba(0, 0, 0, 0.00) !important;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
     -webkit-font-smoothing: antialiased;
     border-radius: 0px;
     font-weight: bold;

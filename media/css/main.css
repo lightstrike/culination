@@ -5464,7 +5464,7 @@ a.label:hover, a.badge:hover {
 
 body {
   background-color: #ececec !important;
-  line-height: 115% !important;
+  line-height: 115%;
   font-family: 'MuseoSans500', Fallback, sans-serif;
 }
 body hr {
@@ -5569,6 +5569,9 @@ body hr {
   border: 1px solid #57264f !important;
   color: white !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5591,6 +5594,9 @@ body hr {
   border: 1px solid #3c1a37 !important;
   color: white !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5617,6 +5623,9 @@ body hr {
   border: 1px solid #60c4af !important;
   color: white !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5639,6 +5648,9 @@ body hr {
   border: 1px solid #428979 !important;
   color: white !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5661,6 +5673,9 @@ body hr {
   border: 1px solid #f96530 !important;
   color: white !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5683,6 +5698,9 @@ body hr {
   border: 1px solid #ad4621 !important;
   color: white !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5705,6 +5723,9 @@ body hr {
   border: 1px solid #57264f !important;
   color: #57264f !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5727,6 +5748,9 @@ body hr {
   border: 1px solid #57264f !important;
   color: white !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5749,6 +5773,9 @@ body hr {
   border: 1px solid #60c4af !important;
   color: #60c4af !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5771,6 +5798,9 @@ body hr {
   border: 1px solid #60c4af !important;
   color: white !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5793,6 +5823,9 @@ body hr {
   border: 1px solid lightgrey !important;
   color: #333333 !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5815,6 +5848,9 @@ body hr {
   border: 1px solid lightgrey !important;
   color: #333333 !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5837,6 +5873,9 @@ body hr {
   border: 1px solid #cdcdcd !important;
   color: white !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5859,6 +5898,9 @@ body hr {
   border: 1px solid #666666 !important;
   color: white !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5881,6 +5923,9 @@ body hr {
   border: 1px solid #e4e4e4 !important;
   color: #333333 !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -5903,6 +5948,9 @@ body hr {
   border: 1px solid #ad4621 !important;
   color: white !important;
   text-shadow: 0 0px 0 rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
   border-radius: 0px;
   font-weight: bold;
@@ -10743,14 +10791,15 @@ btn-avatar {
   color: #666666;
 }
 
+input::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
 .splash-btn {
   vertical-align: top;
   margin-left: 20px;
-  padding: 7px 20px 3px 20px;
-  width: 47px;
-  min-width: 57px;
-  height: 30px;
-  min-height: 30px;
   border-radius: 3px;
   font-family: 'MuseoSans300';
 }
@@ -10758,6 +10807,14 @@ btn-avatar {
 .splash-btn:hover {
   vertical-align: top;
   border-radius: 3px;
+}
+
+.splash-signup-form .splash-btn {
+  padding: 12px 27px 8px 26px;
+}
+
+.login-form .splash-btn {
+  padding: 12px 30px 8px 30px;
 }
 
 .splash-invite-btn {

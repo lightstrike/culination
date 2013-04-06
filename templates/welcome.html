@@ -93,7 +93,38 @@
             <div class="sharing-thanks"></div>
           </div>
 
-      {% if signup_email %}
+      {% if signup_error %}
+          <div class="slogan primary">
+            <div>Before we can preheat the oven...</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="span6 splash-signup">
+          <div class="span6 splash-signup-text">{{signup_error}}</div>
+          <form id="splash-signup-form" class="splash-signup-form" action="" method="post">
+            {% csrf_token %}
+            <input class="span4 splash-signup-email" name="email" type="email" placeholder="Your email...">
+            <input class="btn btn-primary splash-btn" type="submit" value="SUBMIT">
+          </form>
+        </div>
+      </div>  
+      {% elif signup_message %}
+          <div class="slogan primary">
+            <div>{{signup_message}}</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="span6 splash-signup">
+          <div class="signup-thanks">
+            <div class="span5">We'll ping you at {{signup_email}} when it's time to start cooking :)</div>
+          </div>
+        </div>
+      </div>  
+      {% elif signup_email %}
           <div class="slogan primary">
             <div>OK! We're preheating the oven...</div>
           </div>

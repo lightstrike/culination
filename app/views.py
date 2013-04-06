@@ -29,7 +29,7 @@ from django.contrib.formtools.wizard.views import SessionWizardView
 
 logger = logging.getLogger(__name__)
 
-from .models import (Lesson, LessonIngredient, LessonTool, Step, Video,
+from .models import (UserSignupRequest, Lesson, LessonIngredient, LessonTool, Step, Video,
                      LessonRating, FeaturedChef, LessonRequest, Customer, Profile)
 
 from .forms import (UserSignupRequestForm,
@@ -71,7 +71,11 @@ def welcome(request):
             signup_email = request.POST.get('email')
             
             if len(signup_email) == 0:
-              return direct_to_template(request, "welcome.html", {"signup_form": form})
+              signup_error = "Please enter a valid email address."
+              return direct_to_template(request, "welcome.html", {"signup_form": form, 'signup_error':signup_error})
+            elif UserSignupRequest.objects.filter(email__iexact=signup_email):
+              signup_message = "The oven's heating up already!"
+              return direct_to_template(request, "welcome.html", {"signup_form": form, 'signup_message':signup_message, 'signup_email':signup_email})
               
             form.save()
             return direct_to_template(request, "welcome.html", {"signup_form": form, 'signup_email':signup_email})
