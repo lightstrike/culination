@@ -10728,7 +10728,7 @@ btn-avatar {
 }
 
 .splash-signup-text {
-  font-family: 'MuseoSans500';
+  font-family: 'MuseoSans300';
   margin-top: 20px;
   font-size: 16px;
   height: 32px;
@@ -10745,19 +10745,19 @@ btn-avatar {
 }
 
 .btn-indiegogo {
-  margin: 40px 0px 20px 0px;
-  padding: 14px 4px 14px 24px;
-  width: 385px;
-  border-radius: 5px;
+  margin: 20px 0px 0px 0px;
+  padding: 14px 14px 14px 16px;
+  width: 400px;
+  border-radius: 3px;
   font-family: 'MuseoSans300';
-  font-size: 27px;
+  font-size: 24px;
   font-weight: normal;
 }
 
 .btn-indiegogo:hover {
   border-radius: 5px;
   font-family: 'MuseoSans300';
-  font-size: 27px;
+  font-size: 24px;
   font-weight: normal;
 }
 

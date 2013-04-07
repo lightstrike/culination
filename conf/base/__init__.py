@@ -1,4 +1,5 @@
 from logging import *
+
 ######################
 # MEZZANINE SETTINGS #
 ######################
@@ -104,7 +105,8 @@ USE_SOUTH = True
 # In the format (('Full Name', 'email@example.com'),
 #                ('Full Name', 'anotheremail@example.com'))
 ADMINS = (
-    ('Ben Beecher', "BenBeecher@gmail.com")
+    ('Geoffrey Sechter', "geoffrey@culination.co"),
+    ('Andrew Bates', "andrew@culination.co"),
     # ('Your Name', 'your_email@domain.com'),
 )
 MANAGERS = ADMINS
@@ -285,6 +287,7 @@ MIDDLEWARE_CLASSES = (
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.redirects.middleware.RedirectFallbackMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "mezzanine.core.request.CurrentRequestMiddleware",
     "mezzanine.core.middleware.TemplateForDeviceMiddleware",
@@ -453,7 +456,7 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 #     }
 # }
 
-# LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/admin/'
 LOGIN_URL = "/"
 #LOGIN_URL = "/account/login/"
 # LOGOUT_URL = '/logout'
@@ -510,12 +513,6 @@ LOGIN_URL = "/"
 #     from local_settings import *
 # except:
 #     pass
-
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'team@tutelageinc.com'
-EMAIL_HOST_PASSWORD = 'turtles101'
-EMAIL_PORT = 587
 
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 HAYSTACK_WHOOSH_PATH =  os.path.join(PROJECT_ROOT, 'whoosh_index')
