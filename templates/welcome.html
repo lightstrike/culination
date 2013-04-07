@@ -36,20 +36,27 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
-    
-    <script src="https://js.stripe.com/v1/"></script>
-    <script type="text/javascript">
-            Stripe.setPublishableKey('pk_ql6Y3hAzG1yNZRTgdy5I6O7wMzbES');
-    </script>
 
     <script data-main="{{STATIC_URL}}js/{% block jsmain %}main{%endblock%}" src="{{STATIC_URL}}js/require/require-jquery.js"></script>
 
     <script type="text/javascript">
     $(document).ready(function(){
-        $('.splash-container').css({
+        window_margin = ($(window).width() - 980)/2;
+        
+        if (window_margin > 0) {
+          $('.splash-container').css({
             position:'absolute',
             left: ($(window).width() - 980)/2,
-        });
+          });
+        }
+        
+        else {
+          $('.splash-container').css({
+            position:'absolute',
+            left: 0,
+          });
+        }
+        
         
         $('.addthis_icon').click(function() {
             source_image = $(this).attr('src');
@@ -212,15 +219,6 @@
           <a class="addthis_button_twitter_follow_native" tw:screen_name="Culinators"></a> 
           <a data-pin-do="buttonFollow" href="http://pinterest.com/culination/">Culination</a>
         </div>
-        
-        <!-- Google-Plus Follow -->
-        <script type="text/javascript">
-          (function() {
-            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-            po.src = 'https://apis.google.com/js/plusone.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-          })();
-        </script>
 
         <!-- Pinterest Follow -->
         <script type="text/javascript">

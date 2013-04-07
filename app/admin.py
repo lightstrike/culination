@@ -1,16 +1,48 @@
 from django.contrib import admin
 from mezzanine.pages.admin import PageAdmin
-from .models import (Home, HomeBlock, Lesson, Step, About, FeaturedChef, LessonIngredient,
-                     Ingredient, Tool, DietaryRestrictions, Cuisine, Course, Video,
+from .models import (Home, HomeBlock, Press, PressLinkBlock, PressTeamBlock, PressExpertBlock, PressPartnerBlock, PressTestimonialBlock,
+                     Lesson, Step, About, FeaturedChef, LessonIngredient, Ingredient, Tool, DietaryRestrictions, Cuisine, Course, Video,
                      ChefPledge, LessonPledge, LessonRequest, UserSignupRequest)
 
 
+####################################
+### Mezzanine Page administation ###
+####################################
 
 class HomeBlockAdmin(admin.TabularInline):
     model = HomeBlock
 
+
 class HomeAdmin(PageAdmin):
     inlines = (HomeBlockAdmin,)
+
+
+class PressLinkBlockAdmin(admin.TabularInline):
+    model = PressLinkBlock
+
+
+class PressTeamBlockAdmin(admin.TabularInline):
+    model = PressTeamBlock
+    
+    
+class PressExpertBlockAdmin(admin.TabularInline):
+    model = PressExpertBlock
+    
+    
+class PressPartnerBlockAdmin(admin.TabularInline):
+    model = PressPartnerBlock
+    
+    
+class PressTestimonialBlockAdmin(admin.TabularInline):
+    model = PressTestimonialBlock
+
+
+class PressAdmin(PageAdmin):
+    inlines = (PressLinkBlockAdmin, PressTeamBlockAdmin, PressExpertBlockAdmin, PressPartnerBlockAdmin, PressTestimonialBlockAdmin,)
+
+####################################
+### Application adminstration    ###
+####################################
 
 class StepAdmin(admin.TabularInline):
     model = Step
@@ -46,6 +78,7 @@ class FeaturedChefAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Home, HomeAdmin)
+admin.site.register(Press, PressAdmin)
 admin.site.register(About, PageAdmin)
 admin.site.register(FeaturedChef, FeaturedChefAdmin)
 admin.site.register(Lesson, LessonAdmin)

@@ -1,0 +1,75 @@
+{% load mezzanine_tags %}
+<!doctype html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+  <head>
+    <title>Culination - Taste Your Potential</title>
+    <link rel='stylesheet' href='{{ STATIC_URL }}css/main.css' />
+    <link rel='shortcut icon' href='{{ STATIC_URL }}img/favicon.ico' />
+    <link rel='apple-touch-icon' href="">
+
+    <meta name='title' content="Culination - Taste Your Potential" />
+    <meta name='description' content="I want to make my kitchen a place for inspiration, not intimidation. That's why I want to join Culination." />
+
+    <!-- Google Site Verification -->
+    <meta name='google-site-verification' content="" />
+
+    <!-- Facebook Open Graph -->
+    <meta property="fb:admins" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="Culination - Taste Your Potential" />
+    <meta property="og:url" content="http://culination.co" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="I want to make my kitchen a place for inspiration, not intimidation. That's why I want to join Culination." />
+    <meta property="og:image" content="http://wellganic-tutelage.dotcloud.com/static/img/culination-logo-full.png" />
+    <meta property="fb:page_id" content="" />
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-39358246-1']);
+      _gaq.push(['_trackPageview']);
+      _gaq.push(['_trackPageLoadTime']);
+
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+    <script data-main="{{STATIC_URL}}js/{% block jsmain %}main{%endblock%}" src="{{STATIC_URL}}js/require/require-jquery.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){       
+      window_margin = ($(window).width() - 980)/2;
+        
+      if (window_margin > 0) {
+        $('.splash-container').css({
+          position:'absolute',
+          left: ($(window).width() - 980)/2,
+        });
+      }
+      
+      else {
+        $('.splash-container').css({
+          position:'absolute',
+          left: 0,
+        });
+      } 
+    });
+    </script>
+  </head>
+  <body>
+    <!-- AddThis Analytics -->
+    <script type="text/javascript">var addthis_config = {"data_track_addressbar":true, services_overlay:'facebook,tumblr,more'};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513a9c4843710012"></script>  
+    
+    <div class='container'>
+      <div class="content" >
+        {% block content %}  {% endblock %}
+      </div>
+    </div>
+  
+	{% editable_loader %}
+  </body>
+</html>

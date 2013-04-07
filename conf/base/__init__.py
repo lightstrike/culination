@@ -521,3 +521,5 @@ HAYSTACK_SITECONF = 'app.search_sites'
 
 STRIPE_API = "fYNnSezc4SWDZce9XexC6iP2bLhS6Lan"
 
+
+CSRF_FAILURE_VIEW = 'app.views.csrf_failure'

@@ -45,8 +45,6 @@ CACHES = {
     }
 }
 
-#CSRF_FAILURE_VIEW = 'app.views.csrf_failure'
-
 ####################
 # DYNAMIC SETTINGS #
 ####################

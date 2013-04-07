@@ -17,7 +17,7 @@
   <div class="span8">
     <div class="main-movie">
       {% editable page.home.hero %}
-      <img class="main-movie-img" src="{{STATIC_URL}}img/launchimg.png" />
+      <img class="main-movie-img" src="{{MEDIA_URL}}{{page.home.hero}}" />
       <!-- commenting out sharing functionality for private alpha
       <img class="addthis_shareable main-movie-img" src="{{MEDIA_URL}}{{page.home.hero}}" /> -->
       {% endeditable %}
@@ -32,15 +32,15 @@
 <div class="row main">
   <div style="clear:both;">
     <div class="homelinks">
-      {% with page.home.blocks.all as blocks %}
-      {% for b in blocks %}
-      {% editable b.header b.body b.link_copy b.link_target %}
+      {% with page.home.blocks.all as blocks  %}
+      {% for b in blocks %}      
       
       {% if forloop.counter = 2 %}
       <div class="span6 block-body block-body-right">
       {% else %}
       <div class="span6 block-body">
       {% endif %}
+        {% editable b.header b.body b.link_copy b.link_target %}
         <a class="" href="{{b.link_target}}">
           <div class="block-link">
           {% if forloop.first %}
@@ -54,8 +54,9 @@
         <div class="block-text">
         {{b.body}}
         </div>
+        {% endeditable %}
       </div>
-      {% endeditable %}
+      
       {% endfor %}
 
     </div>

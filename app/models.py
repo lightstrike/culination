@@ -1,6 +1,5 @@
 import re
 from datetime import datetime
-#import magic
 import time
 from itertools import chain
 
@@ -8,12 +7,10 @@ from django.conf import settings
 
 import magic
 
-
 from boto.elastictranscoder.layer1 import ElasticTranscoderConnection
 elastic_connection = ElasticTranscoderConnection(aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
                                                  aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY)
 ENCODING_PIPELINE = "1362949390843-834791" # culiation-transcode
-
 
 from boto.s3.connection import S3Connection
 s3_connection = S3Connection(aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
@@ -21,8 +18,6 @@ s3_connection = S3Connection(aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
 
 MAIN_BUCKET = settings.AWS_STORAGE_BUCKET_NAME
 ENCODING_BUCKET = settings.AWS_ENCODING_BUCKET_NAME
-
-
 
 from django.db import models
 from django.db.models import Avg
@@ -40,15 +35,11 @@ from mezzanine.pages.models import Page
 from mezzanine.core.models import Displayable
 from mezzanine.core.fields import RichTextField
 
-
 from durationfield.db.models.fields.duration import DurationField
 
 from .constants import SKILL_LEVELS, VIDEO_TYPE, VIDEO_SUBTYPES
 
-
 UPLOADS_DIR = 'uploads/{0}/{1.year:04}/{1.month:02}/{1.day:02}/{2}/{3}'
-
-
 
 from decimal import Decimal
 from south.modelsinspector import add_introspection_rules
@@ -97,6 +88,53 @@ class HomeBlock(CreatedMixin):
     body = RichTextField()
     link_copy = models.CharField(max_length=126)
     link_target = models.CharField(max_length=126)
+    image = models.ImageField(upload_to=file_url("home_block_images"))
+
+
+class Press(Page):
+    release_copy = models.CharField(max_length=126)
+    release_link = models.CharField(max_length=512)
+    about_copy = models.CharField(max_length=512)
+    photo = models.ImageField(upload_to=file_url("press_images"))
+    photo_link = models.CharField(max_length=512)
+    expert_copy = models.CharField(max_length=512)
+    product_copy = RichTextField()
+    
+    
+class PressLinkBlock(CreatedMixin):
+    press = models.ForeignKey(Press, related_name="link_blocks")
+    link_copy = models.CharField(max_length=126)
+    link_target = models.CharField(max_length=126)
+    
+    
+class PressTeamBlock(CreatedMixin):
+    press = models.ForeignKey(Press, related_name="team_blocks")
+    name = models.CharField(max_length=126)
+    link = models.CharField(max_length=126)
+    title = models.CharField(max_length=126)
+    description = models.CharField(max_length=126)
+
+
+class PressExpertBlock(CreatedMixin):
+    press = models.ForeignKey(Press, related_name="expert_blocks")
+    name = models.CharField(max_length=126)
+    photo = models.ImageField(upload_to=file_url("press_images"))
+    link = models.CharField(max_length=126)
+    city = models.CharField(max_length=126)
+    description = models.CharField(max_length=512)
+
+
+class PressPartnerBlock(CreatedMixin):
+    press = models.ForeignKey(Press, related_name="partner_blocks")
+    name = models.CharField(max_length=126)
+    photo = models.ImageField(upload_to=file_url("press_images"))
+    link = models.CharField(max_length=126)
+
+
+class PressTestimonialBlock(CreatedMixin):
+    press = models.ForeignKey(Press, related_name="testimonial_blocks")
+    name = models.CharField(max_length=126)
+    description = RichTextField()
 
 
 class About(Page):
@@ -172,12 +210,12 @@ class LessonTool(CreatedMixin):
     def __unicode__(self):
         return self.name
 
+
 class Category(CreatedMixin):
     name = models.CharField(max_length=128, unique=True)
 
     def __unicode__(self):
         return self.name
-
 
 class SubCategory(CreatedMixin):
     name = models.CharField(max_length=128)
@@ -249,8 +287,6 @@ class Profile(CreatedMixin):
         return unicode(self.user)
 
 
-
-
 # class CreditCard(CreatedMixin):
 #     user = models.ForeignKey(User)
 #     name = models.CharField(max_length=128)
@@ -270,6 +306,7 @@ class Profile(CreatedMixin):
 class Customer(CreatedMixin):
     user = models.OneToOneField(User)
     customer_id = models.CharField(max_length=128)
+
 
 class Video(CreatedMixin):
     video = models.FileField(upload_to=file_url("lessonvideos"))
@@ -434,8 +471,6 @@ class Step(CreatedMixin):
 
     picture = models.ImageField(upload_to=file_url(""))
 
-
-
     class Meta():
         ordering = ('order',)
         unique_together = ('lesson', 'order')
@@ -457,6 +492,7 @@ class LessonRating(CreatedMixin):
     class Meta():
         unique_together = ('user', 'lesson')
 
+
 def SlugifyUniquely(value, model, slugfield="slug"):
     suffix = 0
     potential = base = slugify(value)
@@ -466,6 +502,7 @@ def SlugifyUniquely(value, model, slugfield="slug"):
         if not model.objects.filter(**{slugfield: potential}).count():
             return potential
         suffix += 1
+
 
 class LessonRequest(CreatedMixin):
     active = models.BooleanField(default=True)
@@ -551,6 +588,7 @@ class LessonRequest(CreatedMixin):
     def get_absolute_url(self):
         return reverse("ask")  + "?slug=" + self.slug
 
+
 class LessonPledge(CreatedMixin):
     user = models.ForeignKey(User)
     amount = CurrencyField(max_digits=7, decimal_places=2)
@@ -570,6 +608,7 @@ class LessonPledge(CreatedMixin):
 
     class Meta:
         unique_together = (("user", "request"))
+
 
 class ChefPledge(CreatedMixin):
     user = models.ForeignKey(User)
@@ -596,6 +635,7 @@ class ChefPledge(CreatedMixin):
     #     unique_together = (("user", "request", "active"###where active is true ))
     #     this is handled via a postgres unique partal index.
 
+
 class Course(CreatedMixin):
     course = models.CharField(max_length=256)
 
@@ -615,6 +655,7 @@ class DietaryRestrictions(CreatedMixin):
 
     def __unicode__(self):
         return self.restriction
+
 
 class UserSignupRequest(CreatedMixin):
     email = models.EmailField(max_length=256)

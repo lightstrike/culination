@@ -1,0 +1,173 @@
+{% extends 'base-public.html' %}
+{% load mezzanine_tags %}
+{% block content %}
+{% autoescape off %}
+
+<div class="navbar navbar-logo-container">
+  <div class="navbar-inner">
+    <a class="brand" href="/">
+      <img class="navbar-logo-full" src="{{STATIC_URL}}img/culination-logo-full.png" />
+    </a>
+  </div>
+</div>
+
+<div class="navbar" >
+  <div class="navbar-inner">
+    <a class="brand" href="/">
+      <img class="navbar-logo" src="{{STATIC_URL}}img/culination-logo.png" />
+    </a>
+    <ul class="nav">
+      <li>
+        <div class="nav-title">Taste your potential</div>
+      </li>
+  </div>
+</div>
+
+<div class="row main">
+  <div class="span4">
+    
+    {% editable page.press.release_copy page.press.release_link %}
+    <div class="press-header primary">Press Release</div>
+    
+    <a class="tertiary" href="{{page.press.release_link}}" target="_blank">
+      <div>{{page.press.release_copy}}</div>
+    </a>
+    {% endeditable %}
+    
+    {% editable page.press.about_copy %}
+    <div class="press-header primary">
+      <div>About</div>
+    </div>
+    <div>{{page.press.about_copy}}</div>
+    {% endeditable %}
+    <a class="btn btn-tertiary" href="http://youtube.com" target="_blank">Watch IGG Video</a>
+    
+    <div class="press-header primary">
+      <div>Contact</div>
+    </div>
+    <div>
+      <div>Culination co-founder and CEO, </div>
+      <a class="tertiary" href="">
+        <strong>Caen Contee</strong>
+      </a>
+    </div>
+    
+    <div class="press-header primary">
+      <div>Culination Links</div>
+    </div>
+    
+    {% with page.press.link_blocks.all as blocks  %}
+    {% for b in blocks %}
+    
+    {% editable b.link_copy b.link_target %}
+    <a class="tertiary" href="{{b.link_target}}">
+      <strong>{{b.link_copy}}</strong>
+    </a>
+    {% endeditable %}
+    
+    {% endfor %}
+    {% endwith %}
+    
+    <div class="press-header primary">
+      <div>Social Media Links</div>
+    </div>
+    {% include "share.html" %}
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+      <a class="addthis_button_facebook_like" fb:like:href="https://www.facebook.com/Culination" fb:like:layout="button_count"></a>
+      <a class="addthis_button_twitter_follow_native" tw:screen_name="Culinators"></a> 
+      <a data-pin-do="buttonFollow" href="http://pinterest.com/culination/">Culination</a>
+    </div>
+
+    <!-- Pinterest Follow -->
+    <script type="text/javascript">
+    (function(d){
+      var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+      p.type = 'text/javascript';
+      p.async = true;
+      p.src = '//assets.pinterest.com/js/pinit.js';
+      f.parentNode.insertBefore(p, f);
+    }(document));
+    </script>
+    
+    <div class="press-header primary">
+      <div>Team</div>
+    </div>
+
+    {% with page.press.team_blocks.all as blocks  %}
+    {% for b in blocks %}
+    
+    {% editable b.name b.link b.title b.description %}
+    <div>
+      <a class="tertiary" href="{{b.link}}"><div>{{b.name}}</div></a>
+      <div>{{b.title}}</div>
+      <div>{{b.description}}</div>
+    </div>
+    {% endeditable %}
+    
+    {% endfor %}
+    {% endwith %}
+    
+  </div>
+  
+  <div class="span4">
+    
+    <a href="">
+    <div class="press-header primary">
+      <div>Photos</div>
+    </div>
+    <div>
+      <img src="" />
+    </div>
+    <div>Download images</div>
+    </a>
+    
+    <div class="press-header primary">
+      <div>Our Taste Experts</div>
+    </div>
+    <div>Description</div>
+    
+    <div>
+      <div>
+        <img src="" />
+      </div>
+      <div>
+        <a class="tertiary" href=""><div>Name</div></a>
+        <div>, City</div>
+      </div>
+      <div>Description</div>
+    </div>
+    
+  </div>
+  
+  <div class="span4">
+    
+    <div class="press-header primary">Our Partners</div>
+    
+    <a href="">
+    <div>
+      <img src="" />
+    </div>
+    </a>
+    
+    <!-- commented out until we can verify with users
+    <div class="press-header primary">
+      <div>Testimonials</div>
+    </div>
+    
+    <div>Description</div>
+    -->
+    
+    <div class="press-header primary">
+      <div>Product Specifications</div>
+    </div>
+    
+    <div>Description</div>
+    
+    <div class="company-copyright">&#169; Tutelage, Inc.</div>
+    
+  </div>
+  
+</div>
+
+{% endautoescape %}
+{% endblock %}

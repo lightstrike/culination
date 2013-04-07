@@ -5573,7 +5573,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5598,7 +5598,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5627,7 +5627,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5652,7 +5652,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5677,7 +5677,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5702,7 +5702,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5727,7 +5727,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5752,7 +5752,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5777,7 +5777,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5802,7 +5802,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5827,7 +5827,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5852,7 +5852,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5877,7 +5877,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5902,7 +5902,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5927,7 +5927,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -5952,7 +5952,7 @@ body hr {
   -moz-box-shadow: none;
   box-shadow: none;
   -webkit-font-smoothing: antialiased;
-  border-radius: 0px;
+  border-radius: 3px;
   font-weight: bold;
   background-position: 0% 0%;
 }
@@ -10828,10 +10828,6 @@ input::-moz-focus-inner,
   padding: 20px 0px 40px 20px;
 }
 
-.addthis_button_facebook_like {
-  margin-top: 2px;
-}
-
 .addthis_button_twitter_follow_native {
   margin-left: 10px;
   width: 205px;
@@ -10846,4 +10842,11 @@ input::-moz-focus-inner,
   padding-left: 20px;
   padding-right: 20px;
   width: 218px;
+}
+
+/* Splash Page */
+.press-header {
+  font-family: 'MuseoSans300', Fallback, sans-serif;
+  font-size: 22px;
+  margin: 20px 0px;
 }
