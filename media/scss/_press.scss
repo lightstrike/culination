@@ -38,11 +38,18 @@
   max-width: 30%;
 }
 
-.press-expert-info, .press-expert-info * {
+.press-expert-info, .press-expert-info *, .press-partners > .editable-original {
   display: inline-block;
 }
 
-.press-partner-image {
+.press-partners {
   display: inline-block;
   max-width: 45%;
+}
+
+.press-company-copyright {
+    font-family: 'MuseoSans300';
+    font-size: 12px;
+    font-weight: normal;
+    color: $darkgray;
 }

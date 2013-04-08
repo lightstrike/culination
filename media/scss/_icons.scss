@@ -76,6 +76,41 @@
   .sprite-icons-my{background-position:-36px -19px;width:34px;height:18px;}
 }
 
+.btn-icon {
+  height: 34px;
+}
 
+.btn-icon-text {
+  font-family: 'MuseoSans300', Fallback, sans-serif;
+  display: inline-block;
+  vertical-align: top;
+  margin: 7px;
+}
 
+.btn-icon-play {
+  background-image: url("../img/play.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-top: 3px;
+  height: 30px;
+  width: 32px;
+}
+
+.btn-icon-facebook {
+  background-image: url("../img/facebook_white.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-top: 2px;
+  height: 32px;
+  width: 32px;
+}
+
+.btn-icon-twitter {
+  background-image: url("../img/twitter_white.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-top: 3px;
+  height: 26px;
+  width: 32px;
+}
 

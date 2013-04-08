@@ -45,7 +45,12 @@
       <div class="press-piece-20">{{page.press.about_copy}}</div>
       {% endeditable %}
       <div class="press-piece-20">
-        <a class="btn btn-tertiary" href="http://youtube.com" target="_blank">Watch our Indiegogo video</a>
+        <a class="btn btn-tertiary" href="https://vimeo.com/63546462" target="_blank">
+          <div class="btn-icon">
+            <div class="btn-icon-play"></div>
+            <div class="btn-icon-text">Watch our Indiegogo video</div>
+          </div>
+        </a>
       </div>
     </div>
     
@@ -102,10 +107,6 @@
       </div>
     </div>
     
-    <div class="press-block">    
-      
-    </div>
-    
     <!-- Pinterest Follow -->
     <script type="text/javascript">
     (function(d){
@@ -117,6 +118,7 @@
     }(document));
     </script>
     
+    {% if page.press.team_blocks  %}
     <div class="press-block">  
       <div class="press-header primary">Team</div>
 
@@ -134,11 +136,17 @@
       {% endfor %}
       {% endwith %}
     </div>
+    {% endif  %}
+    
+    <div class="press-block press-piece-20"> 
+      <div class="press-company-copyright">&#169; Tutelage, Inc.</div>
+    </div>
     
   </div>
   
   <div class="span4">
     
+    {% if page.press.photo_link  %}
     <div class="press-block">
       {% editable page.press.photo page.press.photo_link %}
       <div class="press-header primary">Photos</div>
@@ -153,7 +161,9 @@
       </div>
       {% endeditable %}
     </div>
+    {% endif  %}
     
+    {% if page.press.expert_copy  %}
     <div class="press-block">
     {% editable page.press.expert_copy %}
     <div class="press-header primary">
@@ -163,7 +173,9 @@
     <div class="press-piece-20">{{page.press.expert_copy}}</div>
     {% endeditable %}
     </div>
+    {% endif  %}
     
+    {% if page.press.expert_blocks  %}
     {% with page.press.expert_blocks.all as blocks  %}
     {% for b in blocks %}
     
@@ -184,32 +196,35 @@
     
     {% endfor %}
     {% endwith %}
-    
+    {% endif  %}
     
     
   </div>
   
   <div class="span4">
     
+    {% if page.press.partner_blocks  %}
     <div class="press-header primary">Our Partners</div>
+    
     
     {% with page.press.partner_blocks.all as blocks  %}
     {% for b in blocks %}
-    
-    {% editable b.name b.photo b.link %}
-    <div class="press-piece-20">
+    <div class="press-piece-20 press-partners">
+      {% editable b.name b.photo b.link %}
       <a href="{{b.link}}">
       <div class="press-partner-image">
         <img src="{{MEDIA_URL}}{{b.photo}}" alt="Partner {{b.name}}" />
       </div>
       </a>
+      {% endeditable %}
     </div>
-    {% endeditable %}
-    
     {% endfor %}
     {% endwith %}
     
-    <!-- commented out until we can verify with users
+    
+    {% endif  %}
+    
+    {% if page.press.testimonial_blocks  %}
     <div class="press-header primary">
       <div>Testimonials</div>
     </div>
@@ -218,13 +233,14 @@
     {% for b in blocks %}
     
     {% editable b.description %}
-    <div>{{b.description}}</div>
+    <div class="press-piece-20">{{b.description}}</div>
     {% endeditable %}
     
     {% endfor %}
     {% endwith %}
-    -->
+    {% endif  %}
     
+    {% if page.press.product_copy  %}
     {% editable page.press.product_copy %}
     <div class="press-header primary">
       <div>Product Specifications</div>
@@ -232,8 +248,7 @@
     
     <div class="press-piece-20">{{page.press.product_copy}}</div>
     {% endeditable %}
-    
-    <div class="company-copyright">&#169; Tutelage, Inc.</div>
+    {% endif  %}
     
   </div>
   
