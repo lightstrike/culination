@@ -40,14 +40,10 @@
       {% else %}
       <div class="span6 block-body">
       {% endif %}
-        {% editable b.header b.body b.link_copy b.link_target %}
+        {% editable b.header b.body b.link_copy b.link_target b.image %}
         <a class="" href="{{b.link_target}}">
           <div class="block-link">
-          {% if forloop.first %}
-          <img class="block-image" src="{{STATIC_URL}}img/hero-lessons.png" />
-          {% else %}
-          <img class="block-image" src="{{STATIC_URL}}img/hero-taste-experts.png" />
-          {% endif %}
+          <img class="block-image" src="{{MEDIA_URL}}{{b.image}}" />
           <span class="block-image-text">{{b.link_copy}}</span>
           </div>
         </a>

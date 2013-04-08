@@ -47,7 +47,7 @@
     </div>
     <div>
       <div>Culination co-founder and CEO, </div>
-      <a class="tertiary" href="">
+      <a class="tertiary" href="mailto:caen@culination.co?subject=Culination Press Inquiry">
         <strong>Caen Contee</strong>
       </a>
     </div>
@@ -60,7 +60,7 @@
     {% for b in blocks %}
     
     {% editable b.link_copy b.link_target %}
-    <a class="tertiary" href="{{b.link_target}}">
+    <a class="tertiary" href="{{b.link_target}}" target="_blank">
       <strong>{{b.link_copy}}</strong>
     </a>
     {% endeditable %}
@@ -71,11 +71,25 @@
     <div class="press-header primary">
       <div>Social Media Links</div>
     </div>
-    {% include "share.html" %}
+    <div class="social-media-sharing">
+      <div class="social-media-sharing-icons">
+        <a href="https://www.facebook.com/Culination" target="_blank"><img src="{{ STATIC_URL }}img/icons/facebook.png" /></a>
+        <a href="https://twitter.com/Culinators" target="_blank"><img src="{{ STATIC_URL }}img/icons/twitter.png" /></a>
+        <a href="https://plus.google.com/u/0/116572620328368189543/" target="_blank"><img src="{{ STATIC_URL }}img/icons/google-plus.png" /></a>
+        <a href="http://pinterest.com/culination/" target="_blank"><img src="{{ STATIC_URL }}img/icons/pinterest.png" /></a>
+      </div>
+    </div>
+    
     <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-      <a class="addthis_button_facebook_like" fb:like:href="https://www.facebook.com/Culination" fb:like:layout="button_count"></a>
-      <a class="addthis_button_twitter_follow_native" tw:screen_name="Culinators"></a> 
-      <a data-pin-do="buttonFollow" href="http://pinterest.com/culination/">Culination</a>
+      <div class="row">
+        <a class="addthis_button_facebook_like" fb:like:href="https://www.facebook.com/Culination" fb:like:layout="button_count"></a>
+      </div>
+      <div class="row">
+        <a class="addthis_button_twitter_follow_native" tw:screen_name="Culinators"></a> 
+      </div>
+      <div class="row">
+        <a data-pin-do="buttonFollow" href="http://pinterest.com/culination/">Culination</a>
+      </div>
     </div>
 
     <!-- Pinterest Follow -->
@@ -111,31 +125,45 @@
   
   <div class="span4">
     
-    <a href="">
+    {% editable page.press.photo page.press.photo_link %}
     <div class="press-header primary">
       <div>Photos</div>
     </div>
+    <a class="tertiary" href="{{page.press.photo_link}}">
     <div>
-      <img src="" />
+      <img src="{{MEDIA_URL}}{{page.press.photo}}" />
     </div>
-    <div>Download images</div>
+    <div>Download a ZIP of all available images</div>
     </a>
+    {% endeditable %}
     
+    {% editable page.press.expert_copy %}
     <div class="press-header primary">
       <div>Our Taste Experts</div>
     </div>
-    <div>Description</div>
+    <div>{{page.press.expert_copy}}</div>
+    {% endeditable %}
     
+    {% with page.press.expert_blocks.all as blocks  %}
+    {% for b in blocks %}
+    
+    {% editable b.name b.photo b.link b.city b.description %}
     <div>
       <div>
-        <img src="" />
+        <img src="{{MEDIA_URL}}{{b.photo}}" alt="Taste Expert {{b.name}}" />
       </div>
       <div>
-        <a class="tertiary" href=""><div>Name</div></a>
-        <div>, City</div>
+        <a class="tertiary" href="{{b.link}}"><div>{{b.name}}</div></a>
+        <div>, {{b.city}}</div>
       </div>
-      <div>Description</div>
+      <div>{{b.description}}</div>
     </div>
+    {% endeditable %}
+    
+    {% endfor %}
+    {% endwith %}
+    
+    
     
   </div>
   
@@ -143,25 +171,43 @@
     
     <div class="press-header primary">Our Partners</div>
     
-    <a href="">
+    {% with page.press.partner_blocks.all as blocks  %}
+    {% for b in blocks %}
+    
+    {% editable b.name b.photo b.link %}
+    <a href="{{b.link}}">
     <div>
-      <img src="" />
+      <img src="{{MEDIA_URL}}{{b.photo}}" alt="Partner {{b.name}}" />
     </div>
     </a>
+    {% endeditable %}
+    
+    {% endfor %}
+    {% endwith %}
     
     <!-- commented out until we can verify with users
     <div class="press-header primary">
       <div>Testimonials</div>
     </div>
     
-    <div>Description</div>
+    {% with page.press.testimonial_blocks.all as blocks  %}
+    {% for b in blocks %}
+    
+    {% editable b.description %}
+    <div>{{b.description}}</div>
+    {% endeditable %}
+    
+    {% endfor %}
+    {% endwith %}
     -->
     
+    {% editable page.press.product_copy %}
     <div class="press-header primary">
       <div>Product Specifications</div>
     </div>
     
-    <div>Description</div>
+    <div>{{page.press.product_copy}}</div>
+    {% endeditable %}
     
     <div class="company-copyright">&#169; Tutelage, Inc.</div>
     
