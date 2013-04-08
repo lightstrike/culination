@@ -26,72 +26,86 @@
 <div class="row main">
   <div class="span4">
     
-    {% editable page.press.release_copy page.press.release_link %}
-    <div class="press-header primary">Press Release</div>
-    
-    <a class="tertiary" href="{{page.press.release_link}}" target="_blank">
-      <div>{{page.press.release_copy}}</div>
-    </a>
-    {% endeditable %}
-    
-    {% editable page.press.about_copy %}
-    <div class="press-header primary">
-      <div>About</div>
-    </div>
-    <div>{{page.press.about_copy}}</div>
-    {% endeditable %}
-    <a class="btn btn-tertiary" href="http://youtube.com" target="_blank">Watch IGG Video</a>
-    
-    <div class="press-header primary">
-      <div>Contact</div>
-    </div>
-    <div>
-      <div>Culination co-founder and CEO, </div>
-      <a class="tertiary" href="mailto:caen@culination.co?subject=Culination Press Inquiry">
-        <strong>Caen Contee</strong>
-      </a>
+    <div class="press-block">
+      {% editable page.press.release_copy page.press.release_link %}
+      <div class="press-header primary">Press Release</div>
+      
+      <div class="press-piece-20">
+        <a class="tertiary" href="{{page.press.release_link}}" target="_blank">
+          <div>{{page.press.release_copy}}</div>
+        </a>
+      </div>
+      {% endeditable %}
     </div>
     
-    <div class="press-header primary">
-      <div>Culination Links</div>
-    </div>
-    
-    {% with page.press.link_blocks.all as blocks  %}
-    {% for b in blocks %}
-    
-    {% editable b.link_copy b.link_target %}
-    <a class="tertiary" href="{{b.link_target}}" target="_blank">
-      <strong>{{b.link_copy}}</strong>
-    </a>
-    {% endeditable %}
-    
-    {% endfor %}
-    {% endwith %}
-    
-    <div class="press-header primary">
-      <div>Social Media Links</div>
-    </div>
-    <div class="social-media-sharing">
-      <div class="social-media-sharing-icons">
-        <a href="https://www.facebook.com/Culination" target="_blank"><img src="{{ STATIC_URL }}img/icons/facebook.png" /></a>
-        <a href="https://twitter.com/Culinators" target="_blank"><img src="{{ STATIC_URL }}img/icons/twitter.png" /></a>
-        <a href="https://plus.google.com/u/0/116572620328368189543/" target="_blank"><img src="{{ STATIC_URL }}img/icons/google-plus.png" /></a>
-        <a href="http://pinterest.com/culination/" target="_blank"><img src="{{ STATIC_URL }}img/icons/pinterest.png" /></a>
+    <div class="press-block">
+      {% editable page.press.about_copy %}
+      <div class="press-header primary">About</div>
+      
+      <div class="press-piece-20">{{page.press.about_copy}}</div>
+      {% endeditable %}
+      <div class="press-piece-20">
+        <a class="btn btn-tertiary" href="http://youtube.com" target="_blank">Watch our Indiegogo video</a>
       </div>
     </div>
     
-    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-      <div class="row">
-        <a class="addthis_button_facebook_like" fb:like:href="https://www.facebook.com/Culination" fb:like:layout="button_count"></a>
-      </div>
-      <div class="row">
-        <a class="addthis_button_twitter_follow_native" tw:screen_name="Culinators"></a> 
-      </div>
-      <div class="row">
-        <a data-pin-do="buttonFollow" href="http://pinterest.com/culination/">Culination</a>
-      </div>
-    </div>
+    <div class="press-block">
+      <div class="press-header primary">Contact</div>
 
+      <div class="press-piece-20">
+        <div>Culination co-founder and CEO, </div>
+        <a class="tertiary" href="mailto:caen@culination.co?subject=Culination Press Inquiry">Caen Contee</a>
+      </div>
+    </div>
+    
+    <div class="press-block">
+      <div class="press-header primary">Culination Links</div>
+      {% with page.press.link_blocks.all as blocks  %}
+      {% for b in blocks %}
+      
+      {% editable b.link_copy b.link_target %}
+      <div class="press-piece-20">
+        <a class="tertiary" href="{{b.link_target}}" target="_blank">{{b.link_copy}}</a>
+      </div>
+      {% endeditable %}
+      
+      {% endfor %}
+      {% endwith %}
+    </div>
+    
+    <div class="press-block">
+      <div class="press-header primary">
+        <div>Social Media Links</div>
+      </div>
+      
+      <div class="press-social-media">
+        <div class="press-social-media-icons">
+          <a href="https://www.facebook.com/Culination" target="_blank"><img src="{{ STATIC_URL }}img/icons/facebook.png" /></a>
+          <a href="https://twitter.com/Culinators" target="_blank"><img src="{{ STATIC_URL }}img/icons/twitter.png" /></a>
+          <a href="https://plus.google.com/u/0/116572620328368189543/" target="_blank"><img src="{{ STATIC_URL }}img/icons/google-plus.png" /></a>
+          <a href="http://pinterest.com/culination/" target="_blank"><img src="{{ STATIC_URL }}img/icons/pinterest.png" /></a>
+        </div>
+        
+        <div class="press-social-media-actions">
+          <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <div class="row">
+              <a class="addthis_button_facebook_like" fb:like:href="https://www.facebook.com/Culination" fb:like:layout="button_count"></a>
+            </div>
+            <div class="row">
+              <a class="addthis_button_twitter_follow_native" tw:screen_name="Culinators"></a> 
+            </div>
+            <div class="row">
+              <a data-pin-do="buttonFollow" href="http://pinterest.com/culination/">Culination</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="press-block">    
+      
+    </div>
+    
     <!-- Pinterest Follow -->
     <script type="text/javascript">
     (function(d){
@@ -103,60 +117,68 @@
     }(document));
     </script>
     
-    <div class="press-header primary">
-      <div>Team</div>
-    </div>
+    <div class="press-block">  
+      <div class="press-header primary">Team</div>
 
-    {% with page.press.team_blocks.all as blocks  %}
-    {% for b in blocks %}
-    
-    {% editable b.name b.link b.title b.description %}
-    <div>
-      <a class="tertiary" href="{{b.link}}"><div>{{b.name}}</div></a>
-      <div>{{b.title}}</div>
-      <div>{{b.description}}</div>
+      {% with page.press.team_blocks.all as blocks  %}
+      {% for b in blocks %}
+      
+      {% editable b.name b.link b.title b.description %}
+      <div class="press-piece-20">
+        <a class="tertiary" href="{{b.link}}"><div>{{b.name}}</div></a>
+        <div class="press-piece-5">{{b.title}}</div>
+        <div class="press-piece-5">{{b.description}}</div>
+      </div>
+      {% endeditable %}
+      
+      {% endfor %}
+      {% endwith %}
     </div>
-    {% endeditable %}
-    
-    {% endfor %}
-    {% endwith %}
     
   </div>
   
   <div class="span4">
     
-    {% editable page.press.photo page.press.photo_link %}
-    <div class="press-header primary">
-      <div>Photos</div>
+    <div class="press-block">
+      {% editable page.press.photo page.press.photo_link %}
+      <div class="press-header primary">Photos</div>
+      
+      <div class="press-piece-20">
+        <a class="tertiary" href="{{page.press.photo_link}}">
+        <div>
+          <img src="{{MEDIA_URL}}{{page.press.photo}}" />
+        </div>
+        <div class="press-piece-20">Download a ZIP of all available images</div>
+        </a>
+      </div>
+      {% endeditable %}
     </div>
-    <a class="tertiary" href="{{page.press.photo_link}}">
-    <div>
-      <img src="{{MEDIA_URL}}{{page.press.photo}}" />
-    </div>
-    <div>Download a ZIP of all available images</div>
-    </a>
-    {% endeditable %}
     
+    <div class="press-block">
     {% editable page.press.expert_copy %}
     <div class="press-header primary">
       <div>Our Taste Experts</div>
     </div>
-    <div>{{page.press.expert_copy}}</div>
+    
+    <div class="press-piece-20">{{page.press.expert_copy}}</div>
     {% endeditable %}
+    </div>
     
     {% with page.press.expert_blocks.all as blocks  %}
     {% for b in blocks %}
     
     {% editable b.name b.photo b.link b.city b.description %}
-    <div>
-      <div>
+    <div class="press-block">
+      <div class="press-piece-20 press-expert-image">
         <img src="{{MEDIA_URL}}{{b.photo}}" alt="Taste Expert {{b.name}}" />
       </div>
-      <div>
-        <a class="tertiary" href="{{b.link}}"><div>{{b.name}}</div></a>
+      
+      <div class="press-expert-info">
+        <a class="tertiary" href="{{b.link}}">{{b.name}}</a>
         <div>, {{b.city}}</div>
       </div>
-      <div>{{b.description}}</div>
+    
+      <div class="press-piece-5">{{b.description}}</div>
     </div>
     {% endeditable %}
     
@@ -175,11 +197,13 @@
     {% for b in blocks %}
     
     {% editable b.name b.photo b.link %}
-    <a href="{{b.link}}">
-    <div>
-      <img src="{{MEDIA_URL}}{{b.photo}}" alt="Partner {{b.name}}" />
+    <div class="press-piece-20">
+      <a href="{{b.link}}">
+      <div class="press-partner-image">
+        <img src="{{MEDIA_URL}}{{b.photo}}" alt="Partner {{b.name}}" />
+      </div>
+      </a>
     </div>
-    </a>
     {% endeditable %}
     
     {% endfor %}
@@ -206,7 +230,7 @@
       <div>Product Specifications</div>
     </div>
     
-    <div>{{page.press.product_copy}}</div>
+    <div class="press-piece-20">{{page.press.product_copy}}</div>
     {% endeditable %}
     
     <div class="company-copyright">&#169; Tutelage, Inc.</div>

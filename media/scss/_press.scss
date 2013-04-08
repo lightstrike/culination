@@ -1,7 +1,48 @@
-/* Splash Page */
+/* Press Page */
+
+.press-block {
+  
+}
 
 .press-header {
   font-family: 'MuseoSans300', Fallback, sans-serif;
   font-size: 22px;
-  margin: 20px 0px;
+  margin-top: 20px;
+}
+
+.press-piece-20 {
+  margin-top: 20px;
+}
+
+.press-piece-5 {
+  margin-top: 5px;
+}
+
+.press-social-media {
+
+}
+
+.press-social-media-icons {
+  margin: 20px 0px 0px -10px;
+  height: 40px;
+}
+
+.press-social-media-actions .row {
+  margin-top: 5px;
+  margin-left: 0px;
+}
+
+.press-expert-image {
+  display: inline-block;
+  margin-right: 10px;
+  max-width: 30%;
+}
+
+.press-expert-info, .press-expert-info * {
+  display: inline-block;
+}
+
+.press-partner-image {
+  display: inline-block;
+  max-width: 45%;
 }

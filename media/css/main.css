@@ -5464,7 +5464,6 @@ a.label:hover, a.badge:hover {
 
 body {
   background-color: #ececec !important;
-  line-height: 115%;
   font-family: 'MuseoSans500', Fallback, sans-serif;
 }
 body hr {
@@ -5479,6 +5478,7 @@ body hr {
   width: 970px;
   margin-left: 5px;
   padding-top: 20px;
+  padding-bottom: 20px;
   background-color: white;
 }
 
@@ -10685,7 +10685,7 @@ btn-avatar {
 .tagline {
   display: inline-block;
   vertical-align: top;
-  margin-top: 40px;
+  margin-top: 35px;
   margin-left: 20px;
   height: 110px;
   font-family: 'MuseoSans300';
@@ -10746,7 +10746,7 @@ btn-avatar {
 
 .btn-indiegogo {
   margin: 20px 0px 0px 0px;
-  padding: 14px 14px 14px 16px;
+  padding: 14px 12px 14px 20px;
   width: 400px;
   border-radius: 3px;
   font-family: 'MuseoSans300';
@@ -10828,7 +10828,7 @@ input::-moz-focus-inner,
   padding: 20px 0px 40px 20px;
 }
 
-.addthis_button_twitter_follow_native {
+.social-media-follow .addthis_button_twitter_follow_native {
   margin-left: 10px;
   width: 205px;
 }
@@ -10844,9 +10844,42 @@ input::-moz-focus-inner,
   width: 218px;
 }
 
-/* Splash Page */
+/* Press Page */
 .press-header {
   font-family: 'MuseoSans300', Fallback, sans-serif;
   font-size: 22px;
-  margin: 20px 0px;
+  margin-top: 20px;
+}
+
+.press-piece-20 {
+  margin-top: 20px;
+}
+
+.press-piece-5 {
+  margin-top: 5px;
+}
+
+.press-social-media-icons {
+  margin: 20px 0px 0px -10px;
+  height: 40px;
+}
+
+.press-social-media-actions .row, .press-social-media-actions .bordered-row {
+  margin-top: 5px;
+  margin-left: 0px;
+}
+
+.press-expert-image {
+  display: inline-block;
+  margin-right: 10px;
+  max-width: 30%;
+}
+
+.press-expert-info, .press-expert-info * {
+  display: inline-block;
+}
+
+.press-partner-image {
+  display: inline-block;
+  max-width: 45%;
 }
