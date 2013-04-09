@@ -1,0 +1,76 @@
+{% extends 'base-public.html' %}
+{% load mezzanine_tags %}
+{% block content %}
+{% autoescape off %}
+
+<div class="navbar navbar-logo-container">
+  <div class="navbar-inner">
+    <a class="brand" href="/">
+      <img class="navbar-logo-full" src="{{STATIC_URL}}img/culination-logo-full.png" />
+    </a>
+  </div>
+</div>
+
+<div class="navbar" >
+  <div class="navbar-inner">
+    <a class="brand" href="/">
+      <img class="navbar-logo" src="{{STATIC_URL}}img/culination-logo.png" />
+    </a>
+    {% editable page.statusupdate.header_copy %}
+    <ul class="nav">
+      <li>
+        <div class="nav-title">{{page.statusupdate.header_copy}}</div>
+      </li>
+    </ul>
+    {% endeditable %}
+  </div>
+</div>
+
+{% editable page.statusupdate.title_copy page.statusupdate.message %}
+<div class="row main">
+  <div class="span12">
+    <div class="update-title primary">{{page.statusupdate.title_copy}}</div>
+    <div class="update-message">{{page.statusupdate.message}}</div>
+  </div>
+</div>
+{% endeditable %}
+
+<div class="row update-actions">
+  <div class="update-block">
+    <div class="update-header primary">1. Share on Facebook</div>
+    <div class="update-action-text">Share Culination with your friends.</div>
+    <a class="btn btn-tertiary addthis_button_facebook">
+      <div class="btn-icon btn-icon-update addthis_icon">
+        <div class="btn-icon-facebook"></div>
+        <div class="btn-icon-text">SHARE</div>
+      </div>
+    </a>
+  </div>
+  
+  <div class="update-block">
+    <div class="update-header primary">2. Post on Twitter</div>
+    <div class="update-action-text">Hook your following up.</div>
+    <a class="btn btn-tertiary addthis_button_twitter">
+      <div class="btn-icon btn-icon-update addthis_icon">
+        <div class="btn-icon-twitter"></div>
+        <div class="btn-icon-text">TWEET</div>
+      </div>
+    </a>
+  </div>
+  
+  <div class="update-block">
+    <div class="update-header primary">3. Watch our Video</div>
+    <div class="update-action-text">Learn about our mission.</div>
+    <a class="btn btn-tertiary" href="https://vimeo.com/63546462" target="_blank">
+      <div class="btn-icon btn-icon-update">
+        <div class="btn-icon-play"></div>
+        <div class="btn-icon-text">PLAY</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="company-copyright">&#169; Tutelage, Inc.</div>
+
+{% endautoescape %}
+{% endblock %}

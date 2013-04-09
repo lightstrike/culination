@@ -10920,3 +10920,53 @@ input::-moz-focus-inner,
   font-weight: normal;
   color: #666666;
 }
+
+/* Status Update Page */
+.update-title {
+  font-family: 'MuseoSans300', Fallback, sans-serif;
+  font-size: 28px;
+}
+
+.update-message {
+  font-family: 'MuseoSans300', Fallback, sans-serif;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.update-actions {
+  margin-left: 5px;
+  width: 970px;
+}
+
+.update-block {
+  float: left;
+  width: 270px;
+  padding: 20px;
+  background-color: white;
+  margin-top: 20px;
+  margin-right: 20px;
+  font-family: 'MuseoSans300', Fallback, sans-serif;
+  text-align: center;
+}
+
+.update-actions div:nth-child(3) {
+  margin-right: 0px;
+}
+
+.update-header {
+  font-size: 22px;
+}
+
+.update-action-text {
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-icon-update {
+  width: 100px;
+}
+
+.btn-icon-update .btn-icon-text {
+  margin: 8px;
+}

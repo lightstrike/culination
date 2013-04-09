@@ -1,6 +1,6 @@
 from django.contrib import admin
 from mezzanine.pages.admin import PageAdmin
-from .models import (Home, HomeBlock, Press, PressLinkBlock, PressTeamBlock, PressExpertBlock, PressPartnerBlock, PressTestimonialBlock,
+from .models import (Home, HomeBlock, StatusUpdate, Press, PressLinkBlock, PressTeamBlock, PressExpertBlock, PressPartnerBlock, PressTestimonialBlock,
                      Lesson, Step, About, FeaturedChef, LessonIngredient, Ingredient, Tool, DietaryRestrictions, Cuisine, Course, Video,
                      ChefPledge, LessonPledge, LessonRequest, UserSignupRequest)
 
@@ -79,6 +79,7 @@ class FeaturedChefAdmin(admin.ModelAdmin):
 
 admin.site.register(Home, HomeAdmin)
 admin.site.register(Press, PressAdmin)
+admin.site.register(StatusUpdate, PageAdmin)
 admin.site.register(About, PageAdmin)
 admin.site.register(FeaturedChef, FeaturedChefAdmin)
 admin.site.register(Lesson, LessonAdmin)

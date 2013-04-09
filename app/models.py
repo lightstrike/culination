@@ -91,6 +91,12 @@ class HomeBlock(CreatedMixin):
     image = models.ImageField(upload_to=file_url("home_block_images"))
 
 
+class StatusUpdate(Page):
+    header_copy = models.CharField(max_length=126)
+    title_copy = models.CharField(max_length=126)
+    message = RichTextField()
+
+
 class Press(Page):
     release_copy = models.CharField(max_length=126)
     release_link = models.CharField(max_length=512)
