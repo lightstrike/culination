@@ -10914,6 +10914,10 @@ input::-moz-focus-inner,
   max-width: 45%;
 }
 
+.press-partner-image {
+  margin-bottom: 20px;
+}
+
 .press-company-copyright {
   font-family: 'MuseoSans300';
   font-size: 12px;

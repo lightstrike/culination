@@ -128,7 +128,7 @@
       
       {% editable b.name b.link b.title b.description %}
       <div class="press-piece-20">
-        <a class="tertiary" href="{{b.link}}"><div>{{b.name}}</div></a>
+        <a class="tertiary" href="{{b.link}}" target="_blank"><div>{{b.name}}</div></a>
         <div class="press-piece-5">{{b.title}}</div>
         <div class="press-piece-5">{{b.description}}</div>
       </div>
@@ -138,10 +138,6 @@
       {% endwith %}
     </div>
     {% endif  %}
-    
-    <div class="press-block press-piece-20"> 
-      <div class="press-company-copyright">&#169; Tutelage, Inc.</div>
-    </div>
     
   </div>
   
@@ -153,7 +149,7 @@
       <div class="press-header primary">Photos</div>
       
       <div class="press-piece-20">
-        <a class="tertiary" href="{{page.press.photo_link}}">
+        <a class="tertiary" href="{{page.press.photo_link}}" target="_blank">
         <div>
           <img src="{{MEDIA_URL}}{{page.press.photo}}" />
         </div>
@@ -187,7 +183,7 @@
       </div>
       
       <div class="press-expert-info">
-        <a class="tertiary" href="{{b.link}}">{{b.name}}</a>
+        <a class="tertiary" href="{{b.link}}" target="_blank">{{b.name}}</a>
         <div>, {{b.city}}</div>
       </div>
     
@@ -212,7 +208,7 @@
     {% for b in blocks %}
     <div class="press-piece-20 press-partners">
       {% editable b.name b.photo b.link %}
-      <a href="{{b.link}}">
+      <a href="{{b.link}}" target="_blank">
       <div class="press-partner-image">
         <img src="{{MEDIA_URL}}{{b.photo}}" alt="Partner {{b.name}}" />
       </div>
@@ -251,6 +247,12 @@
     {% endeditable %}
     {% endif  %}
     
+  </div>
+  
+  <div class="span12">
+    <div class="press-block press-piece-20"> 
+      <div class="press-company-copyright">&#169; Tutelage, Inc.</div>
+    </div>
   </div>
   
 </div>
