@@ -351,6 +351,11 @@ def ask(request):
 
     return direct_to_template(request, "ask.html", {"contribute_form":contribute_form, "lesson_requests": lesson_requests, 'slug': slug, 'lesson_json':lesson_json, 'pledge_form':pledge_form, 'request_form':request_form, 'alert_date':alert_date})
 
+### TO-FIX: Add dynamic lesson id to be able to add multiple demo lessons ###
+def lesson_demo(request):
+    lesson = Lesson.objects.get(pk=9)
+    return direct_to_template(request, "lesson-demo.html", {"lesson": lesson})
+
 @login_required(redirect_field_name='')
 def lesson(request, lesson_id):
     lesson = get_object_or_404(Lesson, pk=lesson_id)

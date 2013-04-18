@@ -1,0 +1,432 @@
+{% extends 'base-public.html' %}
+{% block title %} {{lesson.title}}{% endblock %}
+
+{% block media %}
+<script type="text/javascript">
+
+
+shift_timeline_left = function(){
+    active_class ='lesson-timeline-picture-active'
+    timeline_photos = $('.lesson-timeline-picture').filter(':not(.no-display)')
+
+    currently_active = timeline_photos.filter("." + active_class)
+    currently_active_index = timeline_photos.index(currently_active)
+    if (currently_active.is($('.lesson-timeline-picture').last())){
+        return
+    }
+
+    if (currently_active_index+1 == timeline_photos.length){
+        next_photo = timeline_photos.last().next()
+        next_photo.removeClass('no-display')
+        timeline_photos.add(next_photo)
+        timeline_photos.animate({
+            left: '-=125px',
+        }, 500 );
+
+        timeline_photos.first().addClass('no-display')
+        if (currently_active.is($('.lesson-timeline-picture').last())){
+            $('.lesson-nav-btn-next').addClass('disabled')
+        } else {
+            $('.lesson-nav-btn-next').removeClass('disabled')
+        }
+
+    }
+    currently_active.removeClass(active_class)
+    currently_active.next().addClass(active_class)
+}
+
+shift_timeline_right = function(){
+    active_class ='lesson-timeline-picture-active'
+    timeline_photos = $('.lesson-timeline-picture').filter(':not(.no-display)')
+
+    currently_active = timeline_photos.filter("." + active_class)
+    currently_active_index = timeline_photos.index(currently_active)
+    if (currently_active.is($('.lesson-timeline-picture').first())){
+        return
+    }
+
+    if (currently_active_index == 0){
+        next_photo = timeline_photos.first().prev()
+        next_photo.removeClass('no-display')
+        timeline_photos.add(next_photo)
+        timeline_photos.animate({
+            right: '-=125px',
+        }, 500 );
+
+        timeline_photos.last().addClass('no-display')
+        if (currently_active.is($('.lesson-timeline-picture').first())){
+            $('.lesson-nav-btn-prev').addClass('disabled')
+        } else {
+            $('.lesson-nav-btn-prev').removeClass('disabled')
+        }
+
+    }
+    currently_active.removeClass(active_class)
+    currently_active.prev().addClass(active_class)
+}
+
+handle_timeline_click = function(){
+    var index = $("#lesson-timeline-images").children().index(this)
+    $('.carousel').carousel(index)
+
+}
+
+
+require(['./common',], function(){
+    require(["jquery", "colorbox"], function($){
+        $(".step-technique").click(function(){
+            that = this
+            $.colorbox({
+                inline:true,
+                width:"620px",
+                height:"349px",
+                href:function(){
+                    return $(that).children('.video-row').children('.lesson-technique-video-lightbox');
+                }
+            })
+        })
+        $('#myModal').on('show', function (e) {
+            if (!data) return e.preventDefault() // stops modal from being shown
+        })
+        $('.lesson-timeline-picture').slice(0,4).removeClass('no-display')
+        $('.lesson-nav-btn-next').on('click', shift_timeline_left)
+        $('.lesson-nav-btn-prev').on('click', shift_timeline_right)
+
+        $('#lesson-timeline-images').children().click(handle_timeline_click)
+        $('.carousel').on('slid', function (e) {
+            idx = $('.carousel').find('.active').index()
+            $('#lesson-timeline-images').children().removeClass('lesson-timeline-picture-active')
+            to_activate = $('#lesson-timeline-images').children()[idx]
+            $(to_activate).addClass('lesson-timeline-picture-active')
+        });
+    });
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<div id="lesson-wrapper" class="bordered-row">
+  <div id="lessons" class="carousel slide no-margin" data-interval="false">
+    <div class="carousel-inner">
+      {% for step in lesson.steps.all %}
+      <div class="{% if forloop.first %}active{% endif %} item">
+        <img class="lesson-picture" src="{{MEDIA_URL}}{{step.picture}}" />
+        <div class="step-text no-margin lesson-wrapper-overlay">
+          <a class="btn btn-primary lesson-nav-btn lesson-nav-btn-prev" href="#lessons" data-slide="prev"><h1 class="no-margin">&lt;</h1></a>
+          <a class="btn btn-primary lesson-nav-btn lesson-nav-btn-next" href="#lessons" data-slide="next"><h1 class="no-margin">&gt;</h1></a>
+
+		  
+          {% if step.technique %}
+          <div class="step-title span10">
+          {% else %}
+          <div class="step-title span12">
+          {% endif %}
+      
+            {% if forloop.first %}
+            {{step.title}}
+            {% else %}
+            Step {{step.order}}: {{step.title}}
+            {% endif %}
+      
+          </div>
+
+        {% if step.technique %}
+          <div class="technique-{{forloop.counter0}} step-technique span2 btn btn-primary">
+            <img class="technique-play-icon pull-left" src="{{STATIC_URL}}img/videoreel.png" />
+            <div class="step-technique-text">WATCH TECHNIQUE</div>
+          
+          <!-- this should likely be moved somewhere else  -->
+            <div class="row no-display video-row">
+              <video class="lesson-technique-video-lightbox" controls="controls">
+                      {% for encoding in step.technique.video.encodedvideos %}
+                      <source class="transcoded-video" src="{{MEDIA_URL}}{{encoding.get_absolute_url}}" />
+                      {% endfor %}
+                      <source src="{{step.technique.video.get_absolute_url}}" />
+                      <p>Your browser does not support HTML5 video.</p>
+              </video>  
+            </div>
+          </div>
+        {% endif %}
+          <div class="step-description span12">{{step.text}}</div>
+        </div>
+        
+        <div id="ingredient" class="span4 no-margin lesson-panel">
+          {% for ingredient in step.ingredients.all %}
+          <div class='panel-item ingredient ingredient{{forloop.counter}} ingredient-{{forloop.parentloop.counter0}}-{{forloop.counter}}'>
+            <div class='lesson-icon-text lesson-icon-ingredients-text'>
+              <strong>
+                <!-- taking out until fractions can be displayed {{ingredient.number}} -->
+                {{ingredient.measurement}} {{ingredient.name}}
+              </strong>
+            </div>
+
+            <div class='lesson-icon-circle lesson-icon-circle-ingredients'>
+              {% if ingredient.ingredient %}
+              <div class="lesson-icon-circle-icon pointer"><h2>+</h2></div>
+              {% else %}
+              <div class="lesson-icon-circle-icon"></div>
+              {% endif %}
+              <!-- add icons once they've been added to the data model
+                   <img class='lessonimages' src='../../static/img/icon.pie.png' alt='{{ingredient.name}}' />
+                   -->
+            </div>
+          </div>
+          {% empty %}
+          <div class='hide-panel ingredient-{{forloop.parentloop.counter0}} no-display'></div>
+          <script type="text/javascript">
+            $('.hide-panel.ingredient-{{forloop.parentloop.counter0}}').parent().remove();
+          </script>
+          {% endfor %}
+        </div>
+
+        {% if step.tools %}
+        <div class="span4 pull-right">
+          <div id="tools" class="lesson-panel">
+            {% for tool in step.tools.all %}
+            <div class='panel-item tool tool{{forloop.counter}} tool-{{forloop.parentloop.counter0}}-{{forloop.counter}}'>
+              <div class='lesson-icon-circle lesson-icon-circle-tools lesson-icon-circle-tool{{forloop.counter}}'>
+                {% if tool.tool %}
+                <div class="lesson-icon-circle-icon pointer"><h2>+</h2></div>
+                {% else %}
+                <div class="lesson-icon-circle-icon"></div>
+                {% endif %}
+              </div>
+              <div class='lesson-icon-text lesson-icon-tools-text'>
+                <strong>{{tool.name}}</strong>
+              </div>
+			  <!-- add icons once they've been added to the data model
+                   <img class='lessonimages' src='../../static/img/icon.pie.png' alt='{{tool.name}}' />
+                   -->
+            </div>
+            {% empty %}
+            <div class='hide-panel tool-{{forloop.parentloop.counter0}} no-display'></div>
+            <script type="text/javascript">
+              $('.hide-panel.tool-{{forloop.parentloop.counter0}}').parent().remove();
+            </script>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div id="lesson-timeline" class="row">
+  <div id="lesson-timeline-images">
+	  {% for step in lesson.steps.all %}
+	  <img class="lesson-timeline-picture{% if forloop.first %} lesson-timeline-picture-active {% endif %} no-display" src="{{MEDIA_URL}}{{step.picture}}"/>
+	  {% endfor %}
+  </div>
+</div>
+
+
+<div class="lesson-components row no-display">
+  {% for step in lesson.steps.all %}
+  {% for ingredient in step.ingredients.all %}
+  <div id="ingredient-{{forloop.parentloop.counter0}}-{{forloop.counter}}" class="lightbox product-lightbox">
+    <!-- {{ingredient.number}} -->
+
+    <div class="row">
+      <div class="span2">
+        <img class="product-image" src="{{MEDIA_URL}}{{ingredient.ingredient.image}}" />
+      </div>
+      <div class="span4">
+        <div class="row">
+          <div class="span4">
+            <h4>{{ingredient.ingredient.name}}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span4">
+            <div class="lesson-icon-circle lesson-icon-circle-products">
+              <div class="span3 product-category"><strong>{{ingredient.ingredient.category}}</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span4">
+            <p class=""><em>{{ingredient.measurement}} {{ingredient.prep}}</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="lightbox-hr">
+
+    <div class="row">
+      <div class="span4">{{ingredient.ingredient.description}}</div>
+      <div class="span2"><strong>Substitutions</strong>
+        <li>{{ingredient.ingredient.substitution1}}</li>
+        <li>{{ingredient.ingredient.substitution2}}</li>
+      </div>
+    </div>
+
+    <hr class="lightbox-hr">
+
+    <div class="row">
+      <div class="span4">Try <em>{{ingredient.ingredient.name}}</em> recommended by our chefs</div>
+      <div class="span2">
+        <a class="item-buy-button" href="{{ingredient.ingredient.product_link}}"
+           target="_blank">Purchase</a>
+      </div>
+    </div>
+
+    <hr class="lightbox-hr">
+
+    <div class="row">
+      <div class="span2">
+        <div class="item-info">
+          <a href="http://www.thefairtradewinecompany.com/varietals/chenin-blanc"
+             target="_blank">
+            <img class="item-image-ad" src="{{STATIC_URL}}img/fairtrade-wine.png" alt="">
+          </a>
+        </div>
+      </div>
+      <div class="span4">
+        <p class="item-ad-description">Consider pairing <em>The Fair Trade Wine Company Chenin Blanc</em> with
+          your <em>{{lesson.title}}</em> and support sustainability. This South
+          African wine offers a superb balance between bright acidity and sweetness.</p>
+        <a
+           class="item-ad-buy-button" href="http://shop.barrelcavewines.com/Fair-Trade-Wine-Company-Chenin-Blanc-FT1003.htm"
+           target="_blank">Try it today</a>
+      </div>
+    </div>
+
+  </div>
+  {% endfor %}
+
+  {% for tool in step.tools.all %}
+  <div id="tool-{{forloop.parentloop.counter0}}-{{forloop.counter}}" class="lightbox product-lightbox">
+    <div class="row">
+      <div class="span2">
+        <img class="product-image" src="{{MEDIA_URL}}{{tool.image}}" />
+      </div>
+      <div class="span4">
+        <div class="row">
+          <div class="span4">
+            <h4>{{tool.name}}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span4">
+            <div class="lesson-icon-circle lesson-icon-circle-products">
+              <div class="span3 product-category"><strong>{{tool.category}}</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span4">
+            <p class=""><em></em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="lightbox-hr">
+
+    <div class="row">
+      <div class="span4">{{tool.description}}</div>
+      <div class="span2"><strong>Substitutions</strong>
+        <li>{{tool.substitution1}}</li>
+        <li>{{tool.substitution2}}</li>
+      </div>
+    </div>
+
+    <hr class="lightbox-hr">
+
+    <div class="row">
+      <div class="span4">Try <em>{{tool.name}}</em> recommended by our chefs</div>
+      <div class="span2">
+        <a class="item-buy-button" href="{{tool.product_link}}"
+           target="_blank">Purchase</a>
+      </div>
+    </div>
+
+    <hr class="lightbox-hr">
+
+    <div class="row">
+      <div class="span2">
+        <div class="item-info">
+          <a href="http://www.thefairtradewinecompany.com/varietals/chenin-blanc"
+             target="_blank">
+            <img class="item-image-ad" src="{{STATIC_URL}}img/fairtrade-wine.png" alt="">
+          </a>
+        </div>
+      </div>
+      <div class="span4">
+        <p class="item-ad-description">Consider pairing <em>The Fair Trade Wine Company Chenin Blanc</em> with
+          your <em>{{lesson.title}}</em> and support sustainability. This South
+          African wine offers a superb balance between bright acidity and sweetness.</p>
+        <a
+           class="item-ad-buy-button" href="http://shop.barrelcavewines.com/Fair-Trade-Wine-Company-Chenin-Blanc-FT1003.htm"
+           target="_blank">Try it today</a>
+      </div>
+    </div>
+
+  </div>
+  {% endfor %}
+  {% endfor %}
+
+  <div id="lesson-technique-videos">
+  </div>
+</div>
+
+<script type="text/javascript">
+pagelogic = function(){
+    /* demo lesson script to correct positioning from base lesson */
+    $('.container').css('margin-top','0');
+    $('.container').css('margin-bottom','0');
+    /* end of demo lesson fix */
+  
+    browserHeight = $(window).height();
+
+    if (browserHeight <= 700) {
+        $('.navbar').css('position','absolute');
+        $('.footer').css('position','static');
+    }
+    
+    {% for step in lesson.steps.all %}
+    {% for ingredient in step.ingredients.all %}
+    {% if ingredient.ingredient %}
+    $(".ingredient-{{forloop.parentloop.counter0}}-{{forloop.counter}}").colorbox({inline:true, width:"480px", href:"#ingredient-{{forloop.parentloop.counter0}}-{{forloop.counter}}"});
+    {% endif %}
+    {% endfor %}
+
+    {% for tool in step.tools.all %}
+    {% if tool.tool %}
+    $(".tool-{{forloop.parentloop.counter0}}-{{forloop.counter}}").colorbox({inline:true, width:"480px", href:"#tool-{{forloop.parentloop.counter0}}-{{forloop.counter}}"});
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+
+    {% for step in lesson.steps.all %}
+    {% for tech in step.technique.all %}
+    $(".technique-{{forloop.parentloop.counter0}}").colorbox({inline:true, width:"50%", href:"#technique-{{forloop.parentloop.counter0}}"});
+    {% endfor %}
+    {% endfor %}
+
+    $(document.documentElement).keyup(function (event) {
+      // handle cursor keys
+	  if (event.keyCode == 37 || event.keyCode == 38) {
+        $('a.lesson-nav-btn-prev').trigger('click');
+      }
+      else if (event.keyCode == 39 || event.keyCode == 40) {
+        $('a.lesson-nav-btn-next').trigger('click');
+      }
+    });
+
+    $('.box-lessons').addClass('box-active');
+    $('.lesson-picture').click(function() {
+      $(this).siblings('.span4').toggle();
+    });
+};
+</script>
+
+{% endblock %}
