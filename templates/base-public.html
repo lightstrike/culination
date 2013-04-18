@@ -2,7 +2,7 @@
 <!doctype html>
 <html xmlns:fb="http://ogp.me/ns/fb#">
   <head>
-    <title>Culination - Taste Your Potential</title>
+    <title>{% block title %} {% endblock %}</title>
     <link rel='stylesheet' href='{{ STATIC_URL }}css/main.css' />
     <link rel='shortcut icon' href='{{ STATIC_URL }}img/favicon.ico' />
     <link rel='apple-touch-icon' href="">
@@ -58,6 +58,7 @@
       } 
     });
     </script>
+    {% block media %}{% endblock %}
   </head>
   <body>
     <!-- AddThis Analytics -->

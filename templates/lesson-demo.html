@@ -236,14 +236,13 @@ require(['./common',], function(){
       <div class="span4">
         <div class="row">
           <div class="span4">
-            <h4>{{ingredient.ingredient.name}}</h4>
+            <h4 class="primary">{{ingredient.ingredient.name|title}}</h4>
           </div>
         </div>
         <div class="row">
           <div class="span4">
             <div class="lesson-icon-circle lesson-icon-circle-products">
-              <div class="span3 product-category"><strong>{{ingredient.ingredient.category}}</strong>
-              </div>
+              <div class="span3 product-category primary">{{ingredient.ingredient.category}}</div>
             </div>
           </div>
         </div>
@@ -271,7 +270,7 @@ require(['./common',], function(){
     <div class="row">
       <div class="span4">Try <em>{{ingredient.ingredient.name}}</em> recommended by our chefs</div>
       <div class="span2">
-        <a class="item-buy-button" href="{{ingredient.ingredient.product_link}}"
+        <a class="item-buy-button btn-tertiary" href="{{ingredient.ingredient.product_link}}"
            target="_blank">Purchase</a>
       </div>
     </div>
@@ -292,7 +291,7 @@ require(['./common',], function(){
           your <em>{{lesson.title}}</em> and support sustainability. This South
           African wine offers a superb balance between bright acidity and sweetness.</p>
         <a
-           class="item-ad-buy-button" href="http://shop.barrelcavewines.com/Fair-Trade-Wine-Company-Chenin-Blanc-FT1003.htm"
+           class="item-ad-buy-button btn-primary" href="http://shop.barrelcavewines.com/Fair-Trade-Wine-Company-Chenin-Blanc-FT1003.htm"
            target="_blank">Try it today</a>
       </div>
     </div>
@@ -309,14 +308,13 @@ require(['./common',], function(){
       <div class="span4">
         <div class="row">
           <div class="span4">
-            <h4>{{tool.name}}</h4>
+            <h4 class="primary">{{tool.name|title}}</h4>
           </div>
         </div>
         <div class="row">
           <div class="span4">
             <div class="lesson-icon-circle lesson-icon-circle-products">
-              <div class="span3 product-category"><strong>{{tool.category}}</strong>
-              </div>
+              <div class="span3 product-category primary">{{tool.category}}</div>
             </div>
           </div>
         </div>
@@ -344,7 +342,7 @@ require(['./common',], function(){
     <div class="row">
       <div class="span4">Try <em>{{tool.name}}</em> recommended by our chefs</div>
       <div class="span2">
-        <a class="item-buy-button" href="{{tool.product_link}}"
+        <a class="item-buy-button btn-tertiary" href="{{tool.product_link}}"
            target="_blank">Purchase</a>
       </div>
     </div>
@@ -365,7 +363,7 @@ require(['./common',], function(){
           your <em>{{lesson.title}}</em> and support sustainability. This South
           African wine offers a superb balance between bright acidity and sweetness.</p>
         <a
-           class="item-ad-buy-button" href="http://shop.barrelcavewines.com/Fair-Trade-Wine-Company-Chenin-Blanc-FT1003.htm"
+           class="item-ad-buy-button btn-primary" href="http://shop.barrelcavewines.com/Fair-Trade-Wine-Company-Chenin-Blanc-FT1003.htm"
            target="_blank">Try it today</a>
       </div>
     </div>

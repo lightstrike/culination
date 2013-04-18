@@ -7951,8 +7951,8 @@ body .ui-tooltip {
   background-image: url(../img/close-button.png);
   top: 0;
   right: 0;
-  width: 28px;
-  height: 28px;
+  width: 27px;
+  height: 27px;
 }
 
 /* #cboxLoadingGraphic{background:url(img/loading.gif) no-repeat center center;} */
@@ -9625,8 +9625,9 @@ body.rtl .formError .formErrorArrow {
   width: 120px;
   padding: 14px;
   margin-top: -10px;
-  height: 32px;
-  border: 3px solid white !important;
+  height: 34px;
+  border: 2px solid white !important;
+  border-radius: 0px;
 }
 
 .step-technique:hover {
@@ -9817,6 +9818,7 @@ body.rtl .formError .formErrorArrow {
   position: absolute;
   bottom: 0;
   padding: 12px 22px !important;
+  border-radius: 0px;
 }
 
 .lesson-nav-btn-prev {
@@ -9839,7 +9841,7 @@ body.rtl .formError .formErrorArrow {
 
 .lesson-timeline-picture {
   height: 138px;
-  width: 245px;
+  width: 246px;
   opacity: 0.7;
   margin-right: -4px;
 }
@@ -9868,6 +9870,7 @@ body.rtl .formError .formErrorArrow {
 
 .product-category {
   margin: 2px 0px 0px 35px !important;
+  color: #57264f;
 }
 
 .lesson-icon-circle-products {
@@ -9887,7 +9890,6 @@ body.rtl .formError .formErrorArrow {
 
 .item-buy-button {
   cursor: pointer;
-  background-color: #60c4af;
   display: inline-block;
   width: 100px;
   padding: 5px 5px;
@@ -9916,7 +9918,6 @@ body.rtl .formError .formErrorArrow {
 .item-ad-buy-button {
   display: inline-block;
   width: 90px;
-  background-color: #428979;
   padding: 5px 5px;
   color: white;
   text-align: center;

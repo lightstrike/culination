@@ -162,8 +162,9 @@
   width: 120px;
   padding: 14px;
   margin-top: -10px;
-  height: 32px;
-  border: 3px solid white !important;
+  height: 34px;
+  border: 2px solid white !important;
+  border-radius: 0px;
 }
 
 .step-technique:hover {
@@ -367,9 +368,10 @@
 }
 
 .lesson-nav-btn {
-    position: absolute;
+  position: absolute;
 	bottom: 0;
-    padding: 12px 22px !important;
+  padding: 12px 22px !important;
+  border-radius: 0px;
     
 }
 .lesson-nav-btn-prev {	
@@ -392,7 +394,7 @@
 
 .lesson-timeline-picture {
 	height: 138px;
-	width: 245px;
+	width: 246px;
 	opacity: 0.7;
     margin-right: -4px;
 }
@@ -421,6 +423,7 @@
 
 .product-category{
     margin: 2px 0px 0px 35px !important;
+    color: $primary;
 }
 
 .lesson-icon-circle-products {
@@ -439,8 +442,7 @@
 }
 
 .item-buy-button {
-    cursor: pointer;
-	background-color: $secondary;
+  cursor: pointer;
 	display: inline-block;
 	width: 100px;
 	padding: 5px 5px;
@@ -469,7 +471,6 @@
 .item-ad-buy-button {
 	display: inline-block;
 	width: 90px;
-	background-color: $secondary-active;
 	padding: 5px 5px;
 	color: white;
 	text-align: center;
