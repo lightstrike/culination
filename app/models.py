@@ -343,6 +343,7 @@ class Video(CreatedMixin):
 
 
     def encode_video(self):
+        
         #copy movie to transcoding bucket
         source_bucket = s3_connection.get_bucket(MAIN_BUCKET)
         dest_bucket = s3_connection.get_bucket(ENCODING_BUCKET)
@@ -368,14 +369,15 @@ class Video(CreatedMixin):
                 "Key": dest,
                 "ThumbnailPattern":"",
                 "Rotate":"auto",
-                "PresetId":"1351620000000-100070", #web
+                # web preset: http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-job.html#create-job-request-output-preset-id
+                "PresetId":"1351620000000-100070",
                 }
             elastic_connection.create_job(ENCODING_PIPELINE, input_dict, output_dict)
             TranscodedVideo.objects.create(video=self, encoded=dest)
 
-        def save(self, *args, **kwargs):
-            super(self.__class__, self).save()
-            self.encode_video()
+    def save(self, *args, **kwargs):
+        super(self.__class__, self).save()
+        self.encode_video()
 
 class TranscodedVideo(CreatedMixin):
     video = models.ForeignKey(Video, related_name="codecs")

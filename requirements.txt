@@ -1,4 +1,4 @@
-django==1.4
+django==1.4.2
 Mezzanine==1.2.2
 psycopg2==2.4.5
 py-bcrypt==0.2
@@ -20,8 +20,8 @@ django-ses==0.4.1
 django_smtp_ssl
 
 # ECL
-https://packages.elmcitylabs.com/ecl_django-0.4.16.tar.gz#ecl_django
-https://packages.elmcitylabs.com/ecl_tools-0.3.7.tar.gz#ecl_tools
+#https://packages.elmcitylabs.com/ecl_django-0.4.16.tar.gz#ecl_django
+#https://packages.elmcitylabs.com/ecl_tools-0.3.7.tar.gz#ecl_tools
 # https://packages.elmcitylabs.com/chargemaster-0.2.19.tar.gz
 # ecl-facebook==1.2.7
 # ecl-twitter==1.2.0

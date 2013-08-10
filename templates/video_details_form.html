@@ -29,20 +29,21 @@ require(["jquery", "lib/jquery.iframe-transport", "lib/jquery.fileupload", "lib/
         $(element).attr("value", idx)
     })
 
-
+/*
     $('#fileupload').fileupload({
         dataType: 'json',
         done: function (e, data) {
 		/*
             $.each(data.result, function (index, file) {
                 $('<p/>').text(file.name).appendTo(document.body);
-            });*/
+            });
         },
 	    progressall: function (e, data) {
             var progress = parseInt(data.loaded / data.total * 100, 10);
             $('#progress .bar').css('width', progress + '%').html(progress + "%");
     	}
     });
+*/
 });
 
 </script>
@@ -100,13 +101,14 @@ require(["jquery", "lib/jquery.iframe-transport", "lib/jquery.fileupload", "lib/
 
     <div class="row">
         <div class="span8">
-	        <form>
+	        <form enctype='multipart/form-data' method="POST" action='{% url add-lesson-video lesson.id %}'>
 	            {%csrf_token%}
 	            <div id="firstname" class="">
 				    <h5>Select Your Video</h5>
 				    <input class="create-lesson-input-file" id="fileupload"
-				           type="file" data-url='{% url add-lesson-video lesson.id %}' name="video" />
-				    <div id="progress" style="height:18px;background:gray; width:300px">
+				           type="file" name="video" />
+				    <input type="submit" />
+                    <div id="progress" style="height:18px;background:gray; width:300px">
 					    <div class="bar" style="width: 0%; height:100%;background:green;">0%</div>
 	                </div>
                 </div>

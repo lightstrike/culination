@@ -1993,19 +1993,19 @@ table [class*=span],
 }
 
 .icon-music {
-  background-position: -24px 0;
+  background-position: -24px  0;
 }
 
 .icon-search {
-  background-position: -48px 0;
+  background-position: -48px  0;
 }
 
 .icon-envelope {
-  background-position: -72px 0;
+  background-position: -72px  0;
 }
 
 .icon-heart {
-  background-position: -96px 0;
+  background-position: -96px  0;
 }
 
 .icon-star {
@@ -2069,23 +2069,23 @@ table [class*=span],
 }
 
 .icon-home {
-  background-position: 0 -24px;
+  background-position: 0      -24px;
 }
 
 .icon-file {
-  background-position: -24px -24px;
+  background-position: -24px  -24px;
 }
 
 .icon-time {
-  background-position: -48px -24px;
+  background-position: -48px  -24px;
 }
 
 .icon-road {
-  background-position: -72px -24px;
+  background-position: -72px  -24px;
 }
 
 .icon-download-alt {
-  background-position: -96px -24px;
+  background-position: -96px  -24px;
 }
 
 .icon-download {
@@ -2149,23 +2149,23 @@ table [class*=span],
 }
 
 .icon-tag {
-  background-position: 0 -48px;
+  background-position: 0      -48px;
 }
 
 .icon-tags {
-  background-position: -25px -48px;
+  background-position: -25px  -48px;
 }
 
 .icon-book {
-  background-position: -48px -48px;
+  background-position: -48px  -48px;
 }
 
 .icon-bookmark {
-  background-position: -72px -48px;
+  background-position: -72px  -48px;
 }
 
 .icon-print {
-  background-position: -96px -48px;
+  background-position: -96px  -48px;
 }
 
 .icon-camera {
@@ -2229,23 +2229,23 @@ table [class*=span],
 }
 
 .icon-pencil {
-  background-position: 0 -72px;
+  background-position: 0      -72px;
 }
 
 .icon-map-marker {
-  background-position: -24px -72px;
+  background-position: -24px  -72px;
 }
 
 .icon-adjust {
-  background-position: -48px -72px;
+  background-position: -48px  -72px;
 }
 
 .icon-tint {
-  background-position: -72px -72px;
+  background-position: -72px  -72px;
 }
 
 .icon-edit {
-  background-position: -96px -72px;
+  background-position: -96px  -72px;
 }
 
 .icon-share {
@@ -2309,23 +2309,23 @@ table [class*=span],
 }
 
 .icon-plus-sign {
-  background-position: 0 -96px;
+  background-position: 0      -96px;
 }
 
 .icon-minus-sign {
-  background-position: -24px -96px;
+  background-position: -24px  -96px;
 }
 
 .icon-remove-sign {
-  background-position: -48px -96px;
+  background-position: -48px  -96px;
 }
 
 .icon-ok-sign {
-  background-position: -72px -96px;
+  background-position: -72px  -96px;
 }
 
 .icon-question-sign {
-  background-position: -96px -96px;
+  background-position: -96px  -96px;
 }
 
 .icon-info-sign {
@@ -2389,23 +2389,23 @@ table [class*=span],
 }
 
 .icon-exclamation-sign {
-  background-position: 0 -120px;
+  background-position: 0      -120px;
 }
 
 .icon-gift {
-  background-position: -24px -120px;
+  background-position: -24px  -120px;
 }
 
 .icon-leaf {
-  background-position: -48px -120px;
+  background-position: -48px  -120px;
 }
 
 .icon-fire {
-  background-position: -72px -120px;
+  background-position: -72px  -120px;
 }
 
 .icon-eye-open {
-  background-position: -96px -120px;
+  background-position: -96px  -120px;
 }
 
 .icon-eye-close {
@@ -2471,23 +2471,23 @@ table [class*=span],
 }
 
 .icon-hdd {
-  background-position: 0 -144px;
+  background-position: 0      -144px;
 }
 
 .icon-bullhorn {
-  background-position: -24px -144px;
+  background-position: -24px  -144px;
 }
 
 .icon-bell {
-  background-position: -48px -144px;
+  background-position: -48px  -144px;
 }
 
 .icon-certificate {
-  background-position: -72px -144px;
+  background-position: -72px  -144px;
 }
 
 .icon-thumbs-up {
-  background-position: -96px -144px;
+  background-position: -96px  -144px;
 }
 
 .icon-thumbs-down {
@@ -6106,7 +6106,7 @@ textarea {
 }
 
 .ui-state-disabled {
-  cursor: default!important;
+  cursor: default !important;
 }
 
 .ui-icon {
@@ -6345,7 +6345,7 @@ input.ui-button {
 
 .ui-buttonset .ui-button {
   margin-left: 0;
-  margin-right: -0.3em;
+  margin-right: -.3em;
 }
 
 button.ui-button::-moz-focus-inner {
@@ -6755,8 +6755,8 @@ button.ui-button::-moz-focus-inner {
 }
 
 .ui-slider-horizontal .ui-slider-handle {
-  top: -0.3em;
-  margin-left: -0.6em;
+  top: -.3em;
+  margin-left: -.6em;
 }
 
 .ui-slider-horizontal .ui-slider-range {
@@ -6778,9 +6778,9 @@ button.ui-button::-moz-focus-inner {
 }
 
 .ui-slider-vertical .ui-slider-handle {
-  left: -0.3em;
+  left: -.3em;
   margin-left: 0;
-  margin-bottom: -0.6em;
+  margin-bottom: -.6em;
 }
 
 .ui-slider-vertical .ui-slider-range {

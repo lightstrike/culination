@@ -20,3 +20,4 @@ local.db
 
 env/
 cache/
+logs/
