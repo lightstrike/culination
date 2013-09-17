@@ -1,5 +1,6 @@
 django==1.4.2
-Mezzanine==1.2.2
+mezzanine==1.2.2
+grappelli_safe==0.2.8
 psycopg2==2.4.5
 py-bcrypt==0.2
 python-memcached==1.48
@@ -41,7 +42,9 @@ django-redis-sessions==0.2.3
 
 sorl-thumbnail==11.12
 
-django-registration
+#need 0.8 to avoid errors from 1.0 updates to use class-based views
+django-registration==0.8 
+
 python-magic
 
 #caching

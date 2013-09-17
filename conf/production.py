@@ -29,7 +29,7 @@ AWS_HEADERS = {
     'Cache-Control': 'max-age=8640000',
     }
 
-MEDIA_URL = "http://culination-dev.s3.amazonaws.com/"
+MEDIA_URL = "https://s3.amazonaws.com/culination-dev/"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
 
 CACHES = {
