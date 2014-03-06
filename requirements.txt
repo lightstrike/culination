@@ -1,8 +1,9 @@
 django==1.4.2
-mezzanine==1.2.2
+mezzanine==1.4.3
+future==0.10.2
 grappelli_safe==0.2.8
 psycopg2==2.4.5
-py-bcrypt==0.2
+py-bcrypt
 python-memcached==1.48
 south==0.7.4
 
@@ -33,7 +34,7 @@ django-haystack==1.2.7
 whoosh==2.4.1
 
 # Misc
-PIL
+pillow
 # django-shorturls==1.0.1
 # suds==0.4
 # django-celery==2.5.1
@@ -61,3 +62,4 @@ ipython
 django-shortcuts
 django-extensions
 stripe
+dotcloud
